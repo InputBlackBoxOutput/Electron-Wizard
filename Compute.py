@@ -1,103 +1,31 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# 
-# <h3>Python script that provides computation for Electron Wizard</h3> 
-#     
 # ---------------------------------------------------------------------------------------------
-# <h6> Written by Rutuparn Pawar </h6>
-#  
-# <h6> Created on 21 August, 2019 </h6>
-# 
-# -------------------------------------------------------------------------------------------------
-# 
-# <h5>List of functions</h5>
-# <ul>
-# <li>Ohms_law(V=None,I=None,R)</li>   
-# <p>- Funtion on Ohms Law V=IR</p>      
-# <p></p>   
-# <li>two_resistor_series_parallel(R1,R2,parallel=False)</li>
-# <p>- Function to calculate equivalent resistance of 2 resistors in series or parallel</p>
-# <p></p>
-# <li>n_resistor_series_parallel(n,parallel=False)</li>
-# <p>- Function to calculate equivalent resistance of any number of resistors in series or parallel</p>
-# <p></p>
-# <li>resistor_power_dissipated(R,V=None,I=None)</li>
-# <p>- Function to calculate power dissipated across a resistor</p>
-# <p></p>
-# <li>resistor_colour_code(Band1,Band2,Band3,Band4=None,Band5=None)</li>
-# <p>- Funtion to calculate resistance of a resistor using colour code</p>
-# <p></p>
-# <li>value_marking(marking)</li>
-# <p>- Funtion to calculate electrical parameters by using markings</p>
-# <p></p>
-# <li>voltage_divider_V(R1,R2,Vin=None,Vout=None,Rload=None)</li>
-# <p>- Funtion to calculate output or input voltage of a voltage divider </p>
-# <p></p>
-# <li>voltage_divider_R(Vin,Vout,R1=None,R2=None,Rload=None)</li>
-# <p>- Funtion to calculate resistor values for a voltage divider</p>
-# <p></p>
-# <li>current_limiter(Vsrc,Iled,colour=None,Vdrop=None)</li>
-# <p>- Function to calculate resistance of resitor used as current limiter for Light Emitting Diode (LED)</p>
-# <p></p>
-# </ul>
-
-# In[1]:
+# Python script that provides computation for Electron Wizard      
+# ---------------------------------------------------------------------------------------------
+#  Written by Rutuparn Pawar 
+#  Created on 21 August, 2019  
+# ---------------------------------------------------------------------------------------------
 
 #Funtion on Ohms Law V=IR
-
-def Ohms_law(R,V=None,I=None):
-    if V is None and I is None:
-        return 'Please specify voltage or current.'
-    else:
+def Ohms_law(R=None,V=None,I=None):    
+    if R is not None:
         if V is not None:
             return V/R
-        else:
+        if I is not None:
             return I*R
+    else:
+    	return V*I 
 
-
-# In[2]:
-
+    if R is None and V is None and I is None:
+    	return 'Please specify atleast 2 parameters.'	
 
 #Function to calculate equivalent resistance of 2 resistors in series or parallel
 
-def two_resistor_series_parallel(R1,R2,parallel=False):
+def two_R_combination(R1,R2,parallel=False):
     if parallel is True:
         return (R1*R2)/(R1+R2)
     else:
         return R1+R2
-
-
-# In[3]:
-
-
-#Function to calculate equivalent resistance of any number of resistors in series or parallel
-
-#Improve by making sure that user does not enter 0 resistance
-def n_resistor_series_parallel(n,parallel=False):
-    
-    R = []
-    Psum = 0
-    Ssum = 0
-    
-    for i in range(0,n):
-        R.append(input("Enter value of R"+str(i+1)+": "))
-    
-    if parallel is True:
-        for i in range(0,n):
-            Psum = Psum + 1/int(R[i])
-        return 1/Psum
-    else:
-        for i in range(0,n):
-            Ssum = Ssum + int(R[i])
-        return Ssum
-    
         
-
-
-# In[4]:
-
-
 #Function to calculate power dissipated across a resistor
 
 def resistor_power_dissipated(R,V=None,I=None):
@@ -109,12 +37,7 @@ def resistor_power_dissipated(R,V=None,I=None):
         else:
             return (I**2)*R
 
-
-# In[5]:
-
-
 #Funtion to calculate resistance of a resistor using colour code
-
 # Improve by adding resistor series feature
 def resistor_colour_code(Band1,Band2,Band3,Band4=None,Band5=None):
     digit = {'Black':0,'Brown':1,'Red':2,'Orange':3,'Yellow':4,'Green':5,'Blue':6,'Violet':7,'Grey':8,'White':9}
@@ -133,11 +56,7 @@ def resistor_colour_code(Band1,Band2,Band3,Band4=None,Band5=None):
         Tolerance = tolerance[Band5]
         
     return str(R)+ " +- " + str(Tolerance)
-        
-
-
-# In[6]:
-
+       
 
 #Function to find nearest value of resistor avaiable  
 
@@ -174,11 +93,6 @@ def nearest_resistor(R,E_series):
     elif E_series == 192:
         return nearest_resistor_scan(R,E192)
             
-            
-
-# In[7]:
-
-
 #Function to help nearest_resistor function 
 def nearest_resistor_scan(R,E):
     for i in range(0,len(E)):
@@ -190,25 +104,15 @@ def nearest_resistor_scan(R,E):
             else:
                 return E[i-1]
 
-
-# In[8]:
-
-
 #Funtion to calculate capacitance of a capacitor using markings
 
 def value_marking(marking):
     
-    value = int(marking/10)
+    value = marking//10
     multiplier = marking%10
     
-    true_value = value * (10**(multiplier-12))
+    return str(value * (10**(multiplier-12)))
     
-    return str(true_value)
-    
-
-
-# In[129]:
-
 
 #Function to remove SI Unit from input
 
@@ -218,10 +122,6 @@ def SI_Unit_Input_Processing(value,unit_char='U'):
     actual_value = value* (10**SI_Unit_prefixes[unit_char])
     
     return actual_value
-
-
-# In[4]:
-
 
 #Funtion to add SI units to output
 def SI_Unit_Output_Processing(value):
@@ -282,15 +182,7 @@ def SI_Unit_Output_Processing(value):
         unit_char = SI_Unit_prefixes[power]
     return (value, unit_char)      
 
-
-# In[5]:
-
-
 SI_Unit_Output_Processing(0.0111)
-
-
-# In[34]:
-
 
 #Funtion to calculate output voltage for a voltage divider    
 
@@ -309,10 +201,6 @@ def voltage_divider_V(R1,R2,Vin=None,Vout=None,Rload=None):
         
     return V
     
-
-
-# In[35]:
-
 
 #Funtion to calculate output voltage for a voltage divider    
 
@@ -336,18 +224,10 @@ def voltage_divider_R(Vin,Vout,R1=None,R2=None,Rload=None):
     return R
     
 
-
-# In[39]:
-
-
 voltage_divider_V(R1=1000, R2=2000,Vin =10,Rload=2000)
 
 
-# In[13]:
-
-
 #Function to calculate resistance of resitor used as current limiter for Light Emitting Diode (LED)
-
 def current_limiter(Vsrc,Iled,colour=None,Vdrop=None):
     
     Vdrop_colour={'Red':1.83,'Yellow':2.14, 'Orange':2.06 ,'Blue':3.09, 'Green':2.95, 'Violet':3.38, 'UV':3.75 , 'White':3.4}
@@ -360,11 +240,6 @@ def current_limiter(Vsrc,Iled,colour=None,Vdrop=None):
         Vdrop = Vdrop_colour[colour]
         
     return int((Vsrc-Vdrop)/Iled)
-    
-
-
-# In[ ]:
-
 
 
 

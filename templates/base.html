@@ -1,0 +1,29 @@
+<!-- HTML layout File for Electron Wizard app -->
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+	<title> Electron Wizard - {{title}}</title>
+	{% else %}
+	<title>Electron Wizard</title>
+	{% endif %}
+
+	{%block styling%}
+	{%endblock styling%}
+
+</head>
+
+<body>
+	<header>
+		{%block header%}
+		{%endblock header%}
+	</header>
+	<main>
+		{%block content%}
+		{%endblock content%}
+	</main>
+	<footer>
+		<h6>Developed by Rutuparn Pawar (InputBlackBoxOutput)</h6>
+	</footer>
+</body>
+</html>

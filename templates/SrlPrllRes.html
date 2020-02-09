@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{%block styling%}
+<link rel="stylesheet" type="text/css" href="static/all.css">
+{%endblock styling%}
+
+
+{% block header %}
+<h1>SrlPrllRes Page</h1>
+{% endblock header%}
+
+{% block content %}
+	<div>
+		<form method="POST" action="">
+			{{ form.hidden_tag() }}
+
+			{{form.r1.label()}}
+			{{form.r1()}}
+
+			{{form.r2.label()}}
+			{{form.r2()}}
+
+			{{form.calculate.label()}}
+			{{form.calculate()}}
+			
+		</form>
+	</div>
+{% endblock content%}
