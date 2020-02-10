@@ -9,6 +9,12 @@
 <h1>Home Page</h1>
 {% endblock header%}
 
+
 {% block content %}
+<ul>
+	<li> <a href={{ url_for('ex') }}>Example Page </a> </li>
+	<p> Note: Form will accept value but the calculation will not be done</p>
+	<li> <a href={{ url_for('about') }}>About page</a> </li>
+<ul>
 {% endblock content%}
 

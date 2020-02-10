@@ -1,3 +1,2 @@
-# Electron-Wizard (In Development) 
-## Will be completed by end of March 2020
+# Electron-Wizard
 A calculator to help in designing of electronics projects.

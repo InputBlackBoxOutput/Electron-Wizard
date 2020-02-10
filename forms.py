@@ -1,10 +1,9 @@
-from flask_wtf import FlaskForm 
-from wtforms import StringField,SubmitField
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired
 
-# Form for serial and parallel resistance calculation
-class SrlPrllRes():
-	r1 = StringField('R1')
-	r2 = StringField('R2') #validators=[]
 
-	calculate = SubmitField('Calculate')
+class R(FlaskForm):
+    r = StringField('R1', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+

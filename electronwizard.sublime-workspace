@@ -1,0 +1,719 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"re",
+				"result"
+			],
+			[
+				"back",
+				"background-color\tproperty"
+			],
+			[
+				"cl",
+				"clear_cross_nut"
+			],
+			[
+				"Vs",
+				"Vs_computer"
+			],
+			[
+				"gr",
+				"grid_map"
+			],
+			[
+				"rt",
+				"rt"
+			],
+			[
+				"G",
+				"GLCD"
+			],
+			[
+				"d",
+				"d"
+			],
+			[
+				"PIN",
+				"PINSEL0"
+			],
+			[
+				"string",
+				"string1"
+			],
+			[
+				"unit",
+				"uint8_t"
+			],
+			[
+				"RW",
+				"RW"
+			],
+			[
+				"RS",
+				"RS"
+			],
+			[
+				"LCD",
+				"LCD_PORT"
+			],
+			[
+				"c",
+				"cursor"
+			],
+			[
+				"Date",
+				"date"
+			],
+			[
+				"n",
+				"n"
+			],
+			[
+				"time",
+				"timeStamp"
+			],
+			[
+				"p",
+				"p"
+			],
+			[
+				"a",
+				"arrow"
+			],
+			[
+				"u",
+				"Up"
+			],
+			[
+				"KEY",
+				"KEY_UP_ARROW"
+			],
+			[
+				"J",
+				"J"
+			],
+			[
+				"I",
+				"Initialize_LCD"
+			],
+			[
+				"delay",
+				"_delay_ms"
+			],
+			[
+				"Mo",
+				"Motor_ACW"
+			],
+			[
+				"Mot",
+				"Motor_CW"
+			],
+			[
+				"col",
+				"col"
+			],
+			[
+				"de",
+				"debounce"
+			],
+			[
+				"0x",
+				"0x00"
+			],
+			[
+				"LED_",
+				"LED_On"
+			],
+			[
+				"theta_1",
+				"theta_1"
+			],
+			[
+				"theta_2",
+				"theta_2"
+			],
+			[
+				"K",
+				"KINEMATICS_H"
+			],
+			[
+				"input",
+				"input_path_list"
+			],
+			[
+				"in",
+				"input_path"
+			],
+			[
+				"key",
+				"keyboard"
+			],
+			[
+				"C",
+				"CHARACTER_SET_H"
+			],
+			[
+				"left",
+				"leftAlt"
+			],
+			[
+				"LED",
+				"LED_Off"
+			],
+			[
+				"ret",
+				"retransmit"
+			],
+			[
+				"ST",
+				"STATUS_REG"
+			],
+			[
+				"USB",
+				"USB_Status_LED"
+			],
+			[
+				"thresh",
+				"thresh_img"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.py",
+			"settings":
+			{
+				"buffer_size": 710,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "forms.py",
+			"settings":
+			{
+				"buffer_size": 263,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "templates/ex.html",
+			"settings":
+			{
+				"buffer_size": 543,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "templates/home.html",
+			"settings":
+			{
+				"buffer_size": 435,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 65,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "templates/about.html",
+			"settings":
+			{
+				"buffer_size": 277,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Snippet: ",
+				"Snippet: main()"
+			],
+			[
+				"",
+				"Build: Cancel"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 192.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard"
+	],
+	"file_history":
+	[
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/.gitignore",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard.bat",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/templates/about.html",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/templates/base.html",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/static/all.css",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/templates/out.html",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/templates/ex.html",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/templates/home.html",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/templates/SrlPrllRes.html",
+		"/C/Users/Rutuparn Pawar/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.0/Middlewares/Third_Party/LwIP/doc/doxygen/generate.bat",
+		"/C/Users/Rutuparn Pawar/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.0/Middlewares/ST/STemWin/Software/JPEG2MovieScripts/Prep.bat",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/Compute.py",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/GSM/UART.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/GSM/UART.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/GSM/GSM.c",
+		"/C/Users/Rutuparn Pawar/Documents/SQL Course Materials/create-databases.sql",
+		"/C/Users/Rutuparn Pawar/Desktop/sample.vcf",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/GPS/main.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/GPS/UART.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/GPS/UART.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/LCD/LCD.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard/templates/SrlPrllRes.html",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard/templates/about.html",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard/templates/home.html",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard/templates/base.html",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard/forms.py",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard/app.py",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard/static/all.css",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard/static/global.css",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard/templates/layout.html",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard/ElectronWizard.py",
+		"/C/Users/Rutuparn Pawar/Tic-Tac-Toe/GUI.py",
+		"/C/Users/Rutuparn Pawar/Tic-Tac-Toe/Tic_Tac_Toe.py",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/ElectronWizard/templates/New Text Document.txt",
+		"/C/Users/Rutuparn Pawar/Tic-Tac-Toe/.git/COMMIT_EDITMSG",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/webapp/coach.css",
+		"/C/Users/Rutuparn Pawar/Desktop/Electron-Wizard/compute_Ohms_Law.py",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/vector_3.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/dogm_font_data_HD44780_J.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/dogm_bitmaps.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/nozzle.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/utility.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/stepper_dac.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/twibus.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/Version.h",
+		"/C/Users/Rutuparn Pawar/AppData/Local/Temp/Rar$DIa1256.6213/U8glib.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/dogm_font_data_HD44780_W.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/digipot_mcp4451.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/dac_mcp4728.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/boards.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/buzzer.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/configuration_store.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/Conditionals.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/circularqueue.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/cardreader.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/cardreader.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/blinkm.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Multi Purpose Desktop CNC/Firmware + Software/Marlin-1.1.x/Marlin-1.1.x/Marlin/Marlin.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/language_tr_utf8.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Folder/3D Printer/3D Printer Documents/Software/Firmware/Marlin-RC/Marlin-RC/Marlin/language_tr.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/GLCD/GLCD.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/GLCD/GLCD.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/LCD/LCD.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/New folder/glcd/GLCD.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Code/stdint.h",
+		"/H/GLCD/GLCD.h",
+		"/H/GLCD/GLCD.c",
+		"/H/AMP/GLCD.c",
+		"/H/GLCD.h",
+		"/H/GLCD.c",
+		"/H/GLCD/img",
+		"/E/nirvana/lib/main.dart",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/GLCD/GLCD_1.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/GLCD/GLCD_3.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/LCD/LCD_404.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/GLCD.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/LCD.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/Stickman Run/Scenes.h",
+		"/H/prc/LCD.c",
+		"/H/LCD/LCD.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/AMP/Stickman Run/GLCD.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/Scene-0.bmp",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/Graph/Data.csv",
+		"/E/Installation_Files/flutter/README.md",
+		"/C/Users/Rutuparn Pawar/Desktop/Graph/Grapher.py",
+		"/C/Users/Rutuparn Pawar/Desktop/Graph/Data.csv",
+		"/C/Users/Rutuparn Pawar/Desktop/Graph/Sandbox.py",
+		"/C/Users/Rutuparn Pawar/Desktop/Grapher.py",
+		"/C/Users/Rutuparn Pawar/Desktop/Multi Purpose Desktop CNC/Firmware + Software/Marlin-2.0.x/Marlin/Configuration.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Multi Purpose Desktop CNC/Firmware + Software/Marlin-2.0.x/Marlin/Configuration_adv.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Multi Purpose Desktop CNC/Firmware + Software/Marlin-2.0.x/Marlin/Version.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Multi Purpose Desktop CNC/Software/Marlin-1.1.x/README.md",
+		"/C/Users/Rutuparn Pawar/Desktop/Multi Purpose Desktop CNC/Software/Firmware/Marlin-1.1.x/Marlin-1.1.x/Marlin/Configuration.h",
+		"/D/Backup Pendrive/Maths Project/ImageTransformer-master/main.py",
+		"/D/Backup Pendrive/Maths Project/FT image.m",
+		"/D/Backup Pendrive/Maths Project/ImageTransformer-master/Filter.py",
+		"/D/Backup Pendrive/Maths Project/ImageTransformer-master/ImageHandler.py",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/STM32_SPI_SDCARD-master/STM32F4_HAL_SPI_SDCARD/Src/fatfs_sd.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/STM32_SPI_SDCARD-master/STM32F4_HAL_SPI_SDCARD/Src/fatfs.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/STM32_SPI_SDCARD-master/Old_STM32F1/README.md",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/STM32_SPI_SDCARD-master/STM32F4_HAL_SPI_SDCARD/Src/main.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/STM32_SPI_SDCARD-master/Old_STM32F1/Src/fatfs_sd.c",
+		"/C/Users/Rutuparn Pawar/AppData/Local/Temp/Rar$DIa14060.47495/README.md",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/SD/src/utility/Sd2Card.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/SD/src/utility/Sd2Card.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/SD/src/utility/SdFile.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/SD/src/utility/Sd2PinMap.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/SD/src/utility/SdFat.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/SD/src/SD.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/SD/src/SD.h",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/SD/src/File.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/SD/src/utility/SdVolume.cpp",
+		"/C/Users/Rutuparn Pawar/Desktop/Robocon/Ongoing Work/SD/src/utility/SdInfo.h",
+		"/C/Users/Rutuparn Pawar/STM32CubeIDE/workspace_1.1.0/Diagnostics_System/Core/Src/system.c",
+		"/C/Users/Rutuparn Pawar/STM32CubeIDE/workspace_1.1.0/Diagnostics_System/Core/Inc/main.h",
+		"/C/Users/Rutuparn Pawar/STM32CubeIDE/workspace_1.1.0/Diagnostics_System/Core/Src/main.c",
+		"/C/Users/Rutuparn Pawar/STM32CubeIDE/workspace_1.1.0/Diagnostics_System/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c",
+		"/C/Users/Rutuparn Pawar/STM32CubeIDE/workspace_1.1.0/Diagnostics_System/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/MCA/Keil V5/WaveDrive.asm",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/MCA/Keil V5/FullDrive.asm",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/MCA/Keil V5/HalfDrive.asm",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/MCA/Keil V5/EXP_5_3.asm",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/MCA/Keil V5/EXP_5_2.asm",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/MCA/Keil V5/EXP_5_1.asm",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/MCA/Keil V5/EXP5/EXP_5_1.asm",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/MCA/Keil V5/SerialTx2.asm",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/MCA/Keil V5/SerialTx1.asm",
+		"/C/Users/Rutuparn Pawar/Desktop/Practical/MCA/Keil V5/SerialRx.asm"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\\n\",",
+			"    \"",
+			"\\n,",
+			"    ",
+			"\"",
+			"\\n\",",
+			"\\n",
+			"\"",
+			"tries exceeded",
+			"unsigned char",
+			"GlCD_cmd",
+			"unsigned int",
+			"LCD_cmd"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 710,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								279,
+								279
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "forms.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 263,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								226,
+								226
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/ex.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 543,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								293,
+								293
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 107.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "templates/home.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 435,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								148,
+								148
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 65,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "templates/about.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 277,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								234,
+								234
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "electronwizard.sublime-project",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Rutuparn Pawar\\Desktop\\PDBackup.bat"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 257.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask, render_template, url_for
 from forms import *
 
 app = Flask(__name__)
@@ -15,11 +15,15 @@ def home():
 def about():
 	return render_template("about.html", title="About")
 
-#Series/parallel equivalent resistor calculator
-@app.route("/SrlPrllRes", method=['GET','POST'])
-def calculator_one():
-	form = SrlPrllRes()
-	return render_template("about.html", title='Calculator', form=form)
+
+# Not working : Not getting access to form data !!!!!!!!
+@app.route("/ex", methods=['GET', 'POST'])
+def ex():
+    form = R()
+    if form.validate_on_submit():
+    	result = form.r.data
+    	return render_template('ex.html',result=result)
+    return render_template('ex.html', form=form)
 
 if __name__ == '__main__':
 	app.run(debug =True)

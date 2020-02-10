@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{%block styling%}
+<link rel="stylesheet" type="text/css" href="static/all.css">
+{%endblock styling%}
+
+
+{% block header %}
+<h1>SrlPrllRes Page</h1>
+{% endblock header%}
+
+{% block content %}
+	<div>
+		<form method="POST" action="">
+			{{form.r.label()}}
+			{{form.r()}}
+			<br>
+			{{form.submit.label()}}
+			{{form.submit()}}
+			
+		</form>
+	</div>
+
+	{% if result%}
+	<h1>{{result}}<h1>
+	{% else%}
+	<h1>Error occured while calculating<h1>
+	{% endif %}	
+
+	<a href={{ url_for('home') }}>Home Page </a>
+{% endblock content%}
