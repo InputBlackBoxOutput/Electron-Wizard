@@ -6,26 +6,26 @@
 
 
 {% block header %}
-<h1>SrlPrllRes Page</h1>
+	<h1>Resistors in Series/Parallel</h1>
 {% endblock header%}
 
 {% block content %}
 	<div>
 		<form method="POST" action="">
-			{{form.r.label()}}
-			{{form.r()}}
-			<br>
-			{{form.submit.label()}}
-			{{form.submit()}}
-			
+			{{form.hidden_tag()}}
+			{{form.Rone.label()}}
+			{{form.Rone()}}
+			<br><br>
+			{{form.Rtwo.label()}}
+			{{form.Rtwo()}}
+			<br><br>
+			<input type=submit>
 		</form>
 	</div>
 
 	{% if result%}
-	<h1>{{result}}<h1>
-	{% else%}
-	<h1>Error occured while calculating<h1>
-	{% endif %}	
-
+		<h1>{{result}}<h1>
+	{% endif %}
+	
 	<a href={{ url_for('home') }}>Home Page </a>
 {% endblock content%}

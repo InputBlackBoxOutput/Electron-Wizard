@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{%block styling%}
+	<link rel="stylesheet" type="text/css" href="static/all.css">
+{%endblock styling%}
+
+{% block header %}
+	<h2>Error Occured!</h2>
+{% endblock header%}
+
+{% block content %}
+	<p> An error occured while loading the page.</p> 
+	<br> 
+	<p>Please contact developer to report this error.</p>
+	<a href={{ url_for('home') }}>Home Page </a>
+{% endblock content%}

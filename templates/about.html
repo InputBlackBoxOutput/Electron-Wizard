@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {%block styling%}
-<link rel="stylesheet" type="text/css" href="static/all.css">
+	<link rel="stylesheet" type="text/css" href="static/all.css">
 {%endblock styling%}
 
 {% block header %}
-<h1>About Page</h1>
+	<h2>About Page</h2>
 {% endblock header%}
 
 {% block content %}
-<a href={{ url_for('home') }}>Home Page </a>
+	<a href={{ url_for('home') }}>Home</a>
 {% endblock content%}
