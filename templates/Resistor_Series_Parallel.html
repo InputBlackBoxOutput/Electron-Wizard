@@ -1,0 +1,27 @@
+{% extends "base.html"%}
+
+{% block header %}
+Resistors in Series/Parallel
+{% endblock header %}
+
+{% block content %}
+	<div>
+		<form method="POST" action="">
+			{{form.hidden_tag()}}
+			{{form.Rone.label()}}
+			{{form.Rone()}}
+	
+			<br><br>
+			{{form.Rtwo.label()}}
+			{{form.Rtwo()}}
+			
+			<br><br>
+			<input type=submit>
+		</form>	
+	</div>
+
+	{% if result%}
+		<h1>{{ result }}<h1>
+	{% endif %}
+{% endblock content %}
+	

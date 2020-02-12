@@ -1,0 +1,30 @@
+{% extends "base.html"%}
+
+{%block header %}
+	Ohms Law
+{%endblock header %}
+
+{%block content%}
+	<div>
+		<form method="POST" action="">
+			{{form.hidden_tag()}}
+			{{form.R.label}}
+			{{form.R}}
+			
+			<br><br>
+			{{form.V.label}}
+			{{form.V}}
+			
+			<br><br>
+			{{form.I.label}}
+			{{form.I}}
+			
+			<br><br>
+			<input type=submit>
+		</form>
+	</div>
+
+	{% if result%}
+		<h1>{{ result }}<h1>
+	{% endif %}
+{%endblock content%}
