@@ -1,7 +1,8 @@
-body {
+body, p {
   font-family:      Verdana, Geneva, Arial, sans-serif;
-  font-size:        small;
+  font-size:        medium;
 }
+
 a {
   text-decoration:  none; 
   font-weight:      600; 
@@ -13,7 +14,7 @@ a:hover {
 }
 
 a img {
-  border:           0;
+  border:           10;
 }
 
 h1, h2 {

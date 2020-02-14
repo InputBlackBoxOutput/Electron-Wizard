@@ -1,9 +1,52 @@
 {% extends "base.html"%}
 
 {%block header %}
-	Resistor Value via Colour Code
+	<h1>Resistor Value via Colour Code</h1>
 {%endblock header %}
 
 {%block content%}
-	<p>In Development</p>
+	<div>
+		<form method="POST" action="">
+			{{form.hidden_tag()}}
+			
+			{{ form.n_bands.label }}
+			<br>
+			{% for subfield in form.n_bands %}
+    			<tr>
+        			<td>{{ subfield }}</td>
+        			<td>{{ subfield.label }}</td>
+    			</tr>
+			{% endfor %} 
+
+			<br><br>
+			{{ form.colour1.label}}
+			{{ form.colour1}}
+
+			<br><br>
+			{{ form.colour2.label}}
+			{{ form.colour2}}
+
+			<br><br>
+			{{ form.colour3.label}}
+			{{ form.colour3}}
+
+			<br><br>
+			{{ form.colour4.label}}
+			{{ form.colour4}}
+
+			<br><br>
+			{{ form.colour5.label}}
+			{{ form.colour5}}
+			
+			<br><br>
+			<input type=submit>
+		</form>
+	</div>
+
+	{% if result%}
+		<h1>{{ result }}<h1>
+	{% endif %}
+
+	<br><br>
+	<a href={{ url_for('home') }}>Home</a>
 {%endblock content%}

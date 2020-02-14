@@ -1,34 +1,46 @@
-# ---------------------------------------------------------------------------------------------
-# Python script that provides computation for Electron Wizard      
-# ---------------------------------------------------------------------------------------------
-#  Written by Rutuparn Pawar 
-#  Created on 21 August, 2019  
-# ---------------------------------------------------------------------------------------------
+# Electron Wizard webapp 
+# 
+# @file  : compute.py
+# @brief : Provides computation
+# @author: Rutuparn Pawar (InputBlackBoxOutput)
+# @date_created : 21 August, 2019
+#
 
 #Funtion on Ohms Law V=IR
-def Ohms_law(R=None,V=None,I=None):    
-    if R is not None:
-        if V is not None:
-            return V/R
-        if I is not None:
-            return I*R
-    else:
-    	return V*I 
+def ohmsLaw(R,V,I):    
+    if R and V  and I:
+        return 'All parameters specified!. No parameter to be calculated'
 
-    if R is None and V is None and I is None:
-    	return 'Please specify atleast 2 parameters.'	
+    if not V and not I:
+        return 'Specify voltage or current'
+    if not R and not I:
+        return 'Specify resistance or current'
+    if not R and not V :
+        return 'Specify resistance or voltage'
+
+
+    if not R and not V and not I:
+        return 'Please specify atleast 2 parameters.'
+
+    if R:
+        if V:
+            return f"Current = {V/R}"
+        if I:
+            return f"Voltage = {I*R}"
+    else:
+    	return f"Resistance = {V/I}" 	
 
 #Function to calculate equivalent resistance of 2 resistors in series or parallel
 
-def two_R_combination(R1,R2,parallel=False):
+def resCombination(R1,R2,parallel=False):
     if parallel is True:
-        return (R1*R2)/(R1+R2)
+        return f"Equivalent Resistance = {(R1*R2)/(R1+R2)}"
     else:
-        return R1+R2
+        return f"Equivalent Resistance = {R1+R2}"
         
 #Function to calculate power dissipated across a resistor
 
-def resistor_power_dissipated(R,V=None,I=None):
+def resPwr(R,V=None,I=None):
     if V is None and I is None:
         return 'Please specify voltage or current.'
     else:
@@ -39,7 +51,7 @@ def resistor_power_dissipated(R,V=None,I=None):
 
 #Funtion to calculate resistance of a resistor using colour code
 # Improve by adding resistor series feature
-def resistor_colour_code(Band1,Band2,Band3,Band4=None,Band5=None):
+def resClrCode(Band1,Band2,Band3,Band4=None,Band5=None):
     digit = {'Black':0,'Brown':1,'Red':2,'Orange':3,'Yellow':4,'Green':5,'Blue':6,'Violet':7,'Grey':8,'White':9}
     multiplier = {'Black':0,'Brown':1,'Red':2,'Orange':3,'Yellow':4,'Green':5,'Blue':6,'Violet':7,'Grey':8,'White':9,'Gold':0.1,'Silver':0.01}
     tolerance = {'Brown':1,'Red':2,'Green':0.5,'Blue':0.25,'Violet':0.1,'Grey':0.05,'Gold':5,'Silver':10}
@@ -116,73 +128,73 @@ def value_marking(marking):
 
 #Function to remove SI Unit from input
 
-def SI_Unit_Input_Processing(value,unit_char='U'):
+# def SI_Unit_Input_Processing(value,unit_char='U'):
     
-    SI_Unit_prefixes={'p':-12,'n':-9,'u':-6,'m':-3,'U':0,'k':3,'M':6,'G':9}
-    actual_value = value* (10**SI_Unit_prefixes[unit_char])
+#     SI_Unit_prefixes={'p':-12,'n':-9,'u':-6,'m':-3,'U':0,'k':3,'M':6,'G':9}
+#     actual_value = value* (10**SI_Unit_prefixes[unit_char])
     
-    return actual_value
+#     return actual_value
 
-#Funtion to add SI units to output
-def SI_Unit_Output_Processing(value):
+# #Funtion to add SI units to output
+# def SI_Unit_Output_Processing(value):
     
-    SI_Unit_prefixes={-12:'p',-9:'n',-6:'u',-3:'m',0:'U',3:'k',6:'M',9:'G'}
+#     SI_Unit_prefixes={-12:'p',-9:'n',-6:'u',-3:'m',0:'U',3:'k',6:'M',9:'G'}
     
-    power=int(0)
+#     power=int(0)
                
-    if(value > 999):
-        while(value>999):
-            value = value/10
-            power = power+1
+#     if(value > 999):
+#         while(value>999):
+#             value = value/10
+#             power = power+1
     
-    if(0 < value < 1):
-        while(0<value<1):
-            value = value*10
-            power = power-1
+#     if(0 < value < 1):
+#         while(0<value<1):
+#             value = value*10
+#             power = power-1
           
     
-    print(power)
-    print(value)
+#     print(power)
+#     print(value)
     
-    if power not in SI_Unit_prefixes.keys():
-        if(power > 0): 
-            for i in [0,3,6,9]:
-                print("i="+str(i))
-                if(power < i):
-                    upper_diff = (i+3) - power
-                    lower_diff = power - i
-                    if(upper_diff > lower_diff):
-                        power = power - lower_diff
-                        value = value * (10**lower_diff)
-                        break
-                    else:
-                        power = power + upper_diff
-                        value = value / (10**upper_diff)
-                        break
-        else:
-            for i in [0,-3,-6,-9]:
-                print("i="+str(i))
-                if(power > i):
-                    upper_diff = abs((i+3) - power)
-                    lower_diff = abs(power - i)
-                    if(upper_diff > lower_diff):
-                        power = power + lower_diff
-                        value = value / (10**lower_diff)
-                        break
-                    else:
-                        power = power - upper_diff
-                        value = value * (10**upper_diff)
-                        break
+#     if power not in SI_Unit_prefixes.keys():
+#         if(power > 0): 
+#             for i in [0,3,6,9]:
+#                 print("i="+str(i))
+#                 if(power < i):
+#                     upper_diff = (i+3) - power
+#                     lower_diff = power - i
+#                     if(upper_diff > lower_diff):
+#                         power = power - lower_diff
+#                         value = value * (10**lower_diff)
+#                         break
+#                     else:
+#                         power = power + upper_diff
+#                         value = value / (10**upper_diff)
+#                         break
+#         else:
+#             for i in [0,-3,-6,-9]:
+#                 print("i="+str(i))
+#                 if(power > i):
+#                     upper_diff = abs((i+3) - power)
+#                     lower_diff = abs(power - i)
+#                     if(upper_diff > lower_diff):
+#                         power = power + lower_diff
+#                         value = value / (10**lower_diff)
+#                         break
+#                     else:
+#                         power = power - upper_diff
+#                         value = value * (10**upper_diff)
+#                         break
 
          
             
-    print(power)
-    print(value)
-    if(power in SI_Unit_prefixes.keys()):
-        unit_char = SI_Unit_prefixes[power]
-    return (value, unit_char)      
+#     print(power)
+#     print(value)
+#     if(power in SI_Unit_prefixes.keys()):
+#         unit_char = SI_Unit_prefixes[power]
+#     return (value, unit_char)      
 
-SI_Unit_Output_Processing(0.0111)
+# SI_Unit_Output_Processing(0.0111)
 
 #Funtion to calculate output voltage for a voltage divider    
 
@@ -223,9 +235,6 @@ def voltage_divider_R(Vin,Vout,R1=None,R2=None,Rload=None):
         
     return R
     
-
-voltage_divider_V(R1=1000, R2=2000,Vin =10,Rload=2000)
-
 
 #Function to calculate resistance of resitor used as current limiter for Light Emitting Diode (LED)
 def current_limiter(Vsrc,Iled,colour=None,Vdrop=None):

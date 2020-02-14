@@ -1,7 +1,7 @@
 {% extends "base.html"%}
 
 {%block header %}
-	Ohms Law
+	<h1>Ohms Law</h1>
 {%endblock header %}
 
 {%block content%}
@@ -27,4 +27,7 @@
 	{% if result%}
 		<h1>{{ result }}<h1>
 	{% endif %}
+
+	<br><br>
+	<a href={{ url_for('home') }}>Home</a>
 {%endblock content%}

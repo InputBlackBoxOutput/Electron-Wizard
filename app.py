@@ -1,7 +1,14 @@
 # Electron Wizard webapp
+#
+# @file  : app.py
+# @brief : Provides entry-point and framework 
+# @author: Rutuparn Pawar (InputBlackBoxOutput)
+# @date_created : 7 Feb, 2020
+
+
 from flask import Flask, render_template, url_for, flash, request, redirect
 import forms
-# import compute
+import compute
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -25,6 +32,12 @@ def about():
 def error():
     return render_template('error.html',title='Error Occured')    
 
+# Use to redirect to above page in case of error (Not used)
+# if form.error:
+#     print('Error Occured')
+#     return redirect(url_for('error'))
+
+
 # 
 @app.route('/fun')
 def fun():
@@ -38,14 +51,10 @@ def Ohms_Law():
     form = forms.Ohm()
     
     if form.validate_on_submit():
-        result = form.R.data
+        result = compute.ohmsLaw(form.R.data, form.V.data, form.I.data)
         return render_template('Ohms_Law.html', form=form, result=result)
     else:
         return render_template('Ohms_Law.html', form=form)
-
-    if form.error:
-        print('Error Occured')
-        return redirect(url_for('error'))
 
 
 @app.route("/Resistor_Series_Parallel", methods=['GET', 'POST'])
@@ -53,29 +62,19 @@ def Resistor_Series_Parallel():
     form = forms.R_Comb()
     
     if form.validate_on_submit():
-        result = form.Rone.data + form.Rtwo.data
+        result = compute.resCombination(form.Rone.data, form.Rtwo.data)
         return render_template('Resistor_Series_Parallel.html', form=form, result=result)
     else:
         return render_template('Resistor_Series_Parallel.html', form=form)
 
-    if form.error:
-        print('Error Occured')
-        return redirect(url_for('error'))
-
 @app.route("/Resistor_Colour_Code", methods=['GET', 'POST'])
 def Resistor_Colour_Code():
-    return render_template('Resistor_Colour_Code.html')
-    # form = forms.R()
+    form = forms.R()
     
-    # if form.validate_on_submit():
-    #     result = 'In development'
-    #     return render_template('Resistor_Colour_Code.html', form=form, result=result)
-    # else:
-    #     return render_template('Resistor_Colour_Code.html', form=form)
-
-    # if form.error:
-    #     print('Error Occured')
-    #     return redirect(url_for('error'))
+    if form.validate_on_submit():
+        return render_template('Resistor_Colour_Code.html', form=form, result="Working")
+    else:
+        return render_template('Resistor_Colour_Code.html', form=form)
 
 
 @app.route("/SMD_Code", methods=['GET', 'POST'])
@@ -88,10 +87,6 @@ def SMD_Code():
     #     return render_template('SMD_Code.html', form=form, result=result)
     # else:
     #     return render_template('SMD_Code.html', form=form)
-
-    # if form.error:
-    #     print('Error Occured')
-    #     return redirect(url_for('error'))
 
 #------------------------------------------------------------------------------------------
 if __name__ == '__main__':
