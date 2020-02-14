@@ -1,0 +1,46 @@
+<!-- HTML layout File for calculator routes -->
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+		<title>{{title}}</title>
+	{% else %}
+		<title>Electron Wizard</title>
+	{% endif %}
+	
+	<link rel="stylesheet" type="text/css" href="static/all.css">
+</head>
+
+<body>
+	<header>
+		{%block header%}
+		{%endblock header%}
+	</header>
+	<main>
+		<div>
+			<form method="POST" action="">
+				{{form.hidden_tag()}}
+				
+				{%block fields%}
+				{%endblock fields%}
+
+				<br><br>
+				<input type=submit>
+			</form>
+		</div>
+		<div>
+			{% if result%}
+				<h1>{{ result }}<h1>
+			{% endif %}
+
+			<br>
+			<a href={{ url_for('home') }}>Home</a>
+		</div>
+	</main>
+	<footer>
+		{% if posts %}
+			<p>{{posts}}</p>
+		{% endif%}
+	</footer>
+</body>
+</html>

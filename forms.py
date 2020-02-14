@@ -8,10 +8,10 @@
 
 try:
 	from flask_wtf import FlaskForm
-	from wtforms import DecimalField, RadioField, SelectField
-	from wtforms.validators import DataRequired, Optional, InputRequired
+	from wtforms import IntegerField, DecimalField, RadioField, SelectField 
+	from wtforms.validators import DataRequired, Optional
 except ImportError:
-	print('Error occured while importing modules')
+	print('Error occured while importing modules required by forms.py')
 
 # Ohms law
 class Ohm(FlaskForm):
@@ -21,34 +21,36 @@ class Ohm(FlaskForm):
 
 # Resistors in series/parallel
 class R_Comb(FlaskForm):
-    Rone = DecimalField('R1', validators=[DataRequired()])
-    Rtwo = DecimalField('R2', validators=[DataRequired()])
+	sp = RadioField('In', choices=[('S','Series'),('P','Parallel')], default='S')
+	Rone = DecimalField('R1', validators=[DataRequired()])
+	Rtwo = DecimalField('R2', validators=[DataRequired()])
 
 # Through hole resistor value
-band_list =[('black','black'), ('brown','brown')]
+
+clrSet =['None','Black','Brown','Red','Orange','Yellow','Green','Blue','Violet','Grey','White','Grey','Gold','Silver']
+bandList = [(x,x) for x in clrSet]
+
 class R(FlaskForm):
 	
-	n_bands = RadioField('Number of bands on resistor', validators=[DataRequired], choices=[('3','3'),('4','4'),('5','5')])
-	colour1 = SelectField('Band 1', validators=[DataRequired()], choices=band_list )
-	colour2 = SelectField('Band 2', validators=[DataRequired()], choices=band_list )
-	colour3 = SelectField('Band 3', validators=[DataRequired()], choices=band_list )
-	colour4 = SelectField('Band 4', validators=[Optional()], choices=band_list)
-	colour5 = SelectField('Band 5', validators=[Optional()], choices=band_list)
+	nbands = RadioField('Number of bands on resistor', choices=[('3','3'),('4','4'),('5','5')], default ='3')
+	colour1 = SelectField('Band 1', validators=[DataRequired()], choices=bandList )
+	colour2 = SelectField('Band 2', validators=[DataRequired()], choices=bandList )
+	colour3 = SelectField('Band 3', validators=[DataRequired()], choices=bandList )
+	colour4 = SelectField('Band 4', validators=[Optional()], choices=bandList)
+	colour5 = SelectField('Band 5', validators=[Optional()], choices=bandList)
 
 # SMD Resistor value
 # SMD Capacitor value
 # SMD Inductor value
 class SMD(FlaskForm):
-	compnt = RadioField('Select component', validators=[DataRequired], choices=['Resistor','Capacitor','Inductor'])
-	code = DecimalField('Code', validators=[DataRequired()])
+	compnt = RadioField('Select component', choices=[('R','Resistor'),('C','Capacitor'),('I','Inductor')], default='R')
+	code = IntegerField('Code', validators=[DataRequired()])
 
 # Voltage divider
 class V_Div(FlaskForm):
 	V = DecimalField('V', validators=[DataRequired()])
 	R1 = DecimalField('R1', validators=[DataRequired()])
 	R2 = DecimalField('R2', validators=[DataRequired()])
-
-
 
 # LED resistor
 class LED_R(FlaskForm):

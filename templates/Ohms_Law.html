@@ -1,13 +1,10 @@
-{% extends "base.html"%}
+{% extends "cal_base.html"%}
 
 {%block header %}
 	<h1>Ohms Law</h1>
 {%endblock header %}
 
-{%block content%}
-	<div>
-		<form method="POST" action="">
-			{{form.hidden_tag()}}
+{%block fields%}
 			{{form.R.label}}
 			{{form.R}}
 			
@@ -18,16 +15,4 @@
 			<br><br>
 			{{form.I.label}}
 			{{form.I}}
-			
-			<br><br>
-			<input type=submit>
-		</form>
-	</div>
-
-	{% if result%}
-		<h1>{{ result }}<h1>
-	{% endif %}
-
-	<br><br>
-	<a href={{ url_for('home') }}>Home</a>
-{%endblock content%}
+{%endblock fields%}

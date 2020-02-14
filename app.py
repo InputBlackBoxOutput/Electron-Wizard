@@ -5,10 +5,12 @@
 # @author: Rutuparn Pawar (InputBlackBoxOutput)
 # @date_created : 7 Feb, 2020
 
-
-from flask import Flask, render_template, url_for, flash, request, redirect
-import forms
-import compute
+try:
+    from flask import Flask, render_template, url_for, flash, request, redirect
+    import forms
+    import compute
+except ImportError:
+    print('Error occured while importing modules required by app.py')
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -62,7 +64,8 @@ def Resistor_Series_Parallel():
     form = forms.R_Comb()
     
     if form.validate_on_submit():
-        result = compute.resCombination(form.Rone.data, form.Rtwo.data)
+        result = compute.resCombntion(form.sp.data, form.Rone.data, form.Rtwo.data)
+        # result = form.sp.data + str(form.Rone.data) + str(form.Rtwo.data)
         return render_template('Resistor_Series_Parallel.html', form=form, result=result)
     else:
         return render_template('Resistor_Series_Parallel.html', form=form)
@@ -72,21 +75,22 @@ def Resistor_Colour_Code():
     form = forms.R()
     
     if form.validate_on_submit():
-        return render_template('Resistor_Colour_Code.html', form=form, result="Working")
+        result = compute.resClrCode(form.nbands.data, form.colour1.data, form.colour2.data, form.colour3.data, form.colour4.data, form.colour5.data)
+        # result = form.nbands.data+form.colour1.data + form.colour2.data + form.colour3.data + form.colour4.data + form.colour5.data
+        return render_template('Resistor_Colour_Code.html', form=form, result=result)
     else:
         return render_template('Resistor_Colour_Code.html', form=form)
 
 
 @app.route("/SMD_Code", methods=['GET', 'POST'])
 def SMD_Code():
-    return render_template('SMD_Code.html')
-    # form = forms.SMD()
-    
-    # if form.validate_on_submit():
-    #     result = 'In development'
-    #     return render_template('SMD_Code.html', form=form, result=result)
-    # else:
-    #     return render_template('SMD_Code.html', form=form)
+    form = forms.SMD()
+
+    if form.validate_on_submit():
+        result = compute.valSMD(form.code.data, form.compnt.data)
+        return render_template('SMD_Code.html', form=form, result=result)
+    else:
+        return render_template('SMD_Code.html', form=form)
 
 #------------------------------------------------------------------------------------------
 if __name__ == '__main__':

@@ -9,7 +9,7 @@
 #Funtion on Ohms Law V=IR
 def ohmsLaw(R,V,I):    
     if R and V  and I:
-        return 'All parameters specified!. No parameter to be calculated'
+        return 'All parameters specified! No parameter to be calculated'
 
     if not V and not I:
         return 'Specify voltage or current'
@@ -24,19 +24,19 @@ def ohmsLaw(R,V,I):
 
     if R:
         if V:
-            return f"Current = {V/R}"
+            return f"Current = {V/R} A"
         if I:
-            return f"Voltage = {I*R}"
+            return f"Voltage = {I*R} V"
     else:
-    	return f"Resistance = {V/I}" 	
+    	return f"Resistance = {V/I} ohm" 	
 
 #Function to calculate equivalent resistance of 2 resistors in series or parallel
 
-def resCombination(R1,R2,parallel=False):
-    if parallel is True:
-        return f"Equivalent Resistance = {(R1*R2)/(R1+R2)}"
+def resCombntion(parallel,R1,R2):
+    if parallel == 'P':
+        return f'Equivalent Resistance {((R1*R2)/(R1+R2))} ohm'
     else:
-        return f"Equivalent Resistance = {R1+R2}"
+        return f'Equivalent Resistance = {R1+R2} ohm'
         
 #Function to calculate power dissipated across a resistor
 
@@ -51,24 +51,34 @@ def resPwr(R,V=None,I=None):
 
 #Funtion to calculate resistance of a resistor using colour code
 # Improve by adding resistor series feature
-def resClrCode(Band1,Band2,Band3,Band4=None,Band5=None):
+def resClrCode(nbands,Band1,Band2,Band3,Band4,Band5):
     digit = {'Black':0,'Brown':1,'Red':2,'Orange':3,'Yellow':4,'Green':5,'Blue':6,'Violet':7,'Grey':8,'White':9}
     multiplier = {'Black':0,'Brown':1,'Red':2,'Orange':3,'Yellow':4,'Green':5,'Blue':6,'Violet':7,'Grey':8,'White':9,'Gold':0.1,'Silver':0.01}
     tolerance = {'Brown':1,'Red':2,'Green':0.5,'Blue':0.25,'Violet':0.1,'Grey':0.05,'Gold':5,'Silver':10}
    
+    try:
+        if nbands == '3':
+            R = (digit[Band1] * 10 + digit[Band2]) * (10**multiplier[Band3])
+            Tolerance = 20
 
-    if Band4 is None and Band5 is None:
-        R = (digit[Band1] * 10 + digit[Band2]) * (10**multiplier[Band3])
-        Tolerance = None
-    elif Band5 is None:
-        R = (digit[Band1] * 10 + digit[Band2]) * (10**multiplier[Band3])
-        Tolerance = tolerance[Band4]
-    else:
-        R = (digit[Band1] * 100 + digit[Band2] * 10 + digit[Band3]) * (10**multiplier[Band4])
-        Tolerance = tolerance[Band5]
-        
-    return str(R)+ " +- " + str(Tolerance)
+        elif nbands == '4':
+            R = (digit[Band1] * 10 + digit[Band2]) * (10**multiplier[Band3])
+            Tolerance = tolerance[Band4]
        
+        elif nbands == '5':
+            R = (digit[Band1] * 100 + digit[Band2] * 10 + digit[Band3]) * (10**multiplier[Band4])
+            Tolerance = tolerance[Band5]
+        
+        else:
+            return 'Error occured while computing!'
+
+        return f"{R} +- {Tolerance}% ohm"
+    
+    except KeyError:
+        return 'No such resistor exits'
+    
+    except:
+        return 'Error occured!'   
 
 #Function to find nearest value of resistor avaiable  
 
@@ -116,16 +126,20 @@ def nearest_resistor_scan(R,E):
             else:
                 return E[i-1]
 
-#Funtion to calculate capacitance of a capacitor using markings
-
-def value_marking(marking):
+#Funtion to calculate value of a SMD components using markings
+def valSMD(mark, compnt):
+    val = mark // 10
+    mult = mark % 10
     
-    value = marking//10
-    multiplier = marking%10
+    if compnt == 'R':
+        return f'{val *(10**(mult))} ohm'
+    elif compnt == 'C':
+        return f'{val *(10**(mult-12))} F'    
+    elif compnt == 'I':
+        return f'{val *(10**(mult-6))} H'
+    else:
+        return 'Error occcured while computing!'
     
-    return str(value * (10**(multiplier-12)))
-    
-
 #Function to remove SI Unit from input
 
 # def SI_Unit_Input_Processing(value,unit_char='U'):

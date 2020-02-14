@@ -1,12 +1,20 @@
-{% extends "base.html"%}
+{% extends "cal_base.html"%}
 
 {%block header %}
 	<h1>SMD Component Value</h1>
 {%endblock header %}
 
-{%block content%}
-	<p>In Development</p>
+{%block fields%}		
+			{{ form.compnt.label }}
+			<br>
+			{% for subfield in form.compnt %}
+    			<tr>
+        			<td>{{ subfield }}</td>
+        			<td>{{ subfield.label }}</td>
+    			</tr>
+			{% endfor %} 
 
-	<br><br>
-	<a href={{ url_for('home') }}>Home</a>
-{%endblock content%}
+			<br><br>
+			{{ form.code.label}}
+			{{ form.code}}
+{%endblock fields%}
