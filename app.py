@@ -92,6 +92,27 @@ def SMD_Code():
     else:
         return render_template('SMD_Code.html', form=form)
 
+@app.route("/Voltage_Divider", methods=['GET', 'POST'])
+def Voltage_Divider():
+    form = forms.V_Div()
+
+    if form.validate_on_submit():
+        # result = compute.voltageDivider(form.R1.data, form.R2.data, form.Vin.data, form.Vout.data, form.Rload.data)
+        result = str(form.Vin.data) + str(form.Vout.data) + str(form.Rload.data) + str(form.R1.data) + str(form.R2.data)
+        return render_template('Voltage_Divider.html', form=form, result=result)
+    else:
+        return render_template('Voltage_Divider.html', form=form)
+
+@app.route("/LED_Resistor", methods=['GET', 'POST'])
+def LED_Resistor():
+    form = forms.LED_R()
+
+    if form.validate_on_submit():
+        result = compute.currentLimiter(form.Vsrc.data, form.Ilim.data, form.LEDclr.data)
+        # result = form.LEDclr.data + str(form.Vsrc.data) + str(form.Ilim.data)
+        return render_template('LED_Resistor.html', form=form, result=result)
+    else:
+        return render_template('LED_Resistor.html', form=form)
 #------------------------------------------------------------------------------------------
 if __name__ == '__main__':
 	app.run(debug =True)

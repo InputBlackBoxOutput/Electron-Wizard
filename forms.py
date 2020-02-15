@@ -48,15 +48,23 @@ class SMD(FlaskForm):
 
 # Voltage divider
 class V_Div(FlaskForm):
-	V = DecimalField('V', validators=[DataRequired()])
-	R1 = DecimalField('R1', validators=[DataRequired()])
-	R2 = DecimalField('R2', validators=[DataRequired()])
+	Vin = DecimalField('Vin', validators=[Optional()])
+	Vout = DecimalField('Vout', validators=[Optional()])
+	Rload = DecimalField('Rload', validators=[Optional()])
+	R1 = DecimalField('R1', validators=[Optional()])
+	R2 = DecimalField('R2', validators=[Optional()])
+
+
+LEDclrSet =['Ignore colour','Red','Yellow','Orange','Blue','Green','Violet','UV','White']
+LEDclrlist = [(x,x) for x in LEDclrSet]
 
 # LED resistor
 class LED_R(FlaskForm):
-	Vdrop = DecimalField('Vdrop', validators=[DataRequired()])
-	V = DecimalField('V', validators=[DataRequired()])
-	I = DecimalField('I', validators=[DataRequired()])
+	LEDclr = SelectField('LED Colour', validators=[DataRequired()], choices=LEDclrlist, default='Ignore colour')
+	Vsrc = DecimalField('V Source', validators=[DataRequired()])
+	Ilim = DecimalField('I LED', validators=[DataRequired()])
+
+
 
 
 

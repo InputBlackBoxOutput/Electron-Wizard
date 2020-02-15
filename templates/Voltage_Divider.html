@@ -1,0 +1,26 @@
+{% extends "cal_base.html"%}
+
+{%block header %}
+	<h1>Ohms Law</h1>
+{%endblock header %}
+
+{%block fields%}
+	{{ form.Vin.label }} 
+	{{ form.Vin }}
+
+	<br><br>
+	{{ form.Vout.label }} 
+	{{ form.Vout }} 
+	
+	<br><br>
+	{{ form.Rload.label }} 
+	{{ form.Rload }}
+
+	<br><br>
+	{{ form.R1.label }} 
+	{{ form.R1 }}
+
+	<br><br>
+	{{ form.R2.label }}
+	{{ form.R2 }}
+{%endblock fields%}
