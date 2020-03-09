@@ -9,6 +9,8 @@ try:
     from flask import Flask, render_template, url_for, flash, request, redirect
     import forms
     import compute
+
+    from compute import prefixPreProcess as unit
 except ImportError:
     print('Error occured while importing modules required by app.py')
 
@@ -40,7 +42,7 @@ def error():
 #     return redirect(url_for('error'))
 
 
-# 
+# Time to have fun!
 @app.route('/fun')
 def fun():
     return redirect('https://dino-chrome.com') 
@@ -53,7 +55,8 @@ def Ohms_Law():
     form = forms.Ohm()
     
     if form.validate_on_submit():
-        result = compute.ohmsLaw(form.R.data, form.V.data, form.I.data)
+        #result = compute.ohmsLaw(unit(form.R.data,form.unitR1.data), unit(form.V.data,form.unitV1.data), unit(form.I.data,form.unitI1.data))
+        result = compute.ohmsLaw(form.R.data, form.V.data,form.I.data)
         return render_template('Ohms_Law.html', form=form, result=result)
     else:
         return render_template('Ohms_Law.html', form=form)
@@ -113,6 +116,17 @@ def LED_Resistor():
         return render_template('LED_Resistor.html', form=form, result=result)
     else:
         return render_template('LED_Resistor.html', form=form)
+
+@app.route("/Power_Dissipated", methods=['GET', 'POST'])
+def Power_Dissipated():
+    form = forms.RPwr()
+    
+    if form.validate_on_submit():
+        result = compute.resPwr(form.R.data, form.V.data, form.I.data)
+        return render_template('Power_Dissipated.html', form=form, result=result)
+    else:
+        return render_template('Power_Dissipated.html', form=form)
+        
 #------------------------------------------------------------------------------------------
 if __name__ == '__main__':
 	app.run(debug =True)

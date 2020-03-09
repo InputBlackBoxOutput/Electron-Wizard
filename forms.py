@@ -13,11 +13,34 @@ try:
 except ImportError:
 	print('Error occured while importing modules required by forms.py')
 
+# ////////////////////////////////////////////////////////////////////////////////////////////////////
+# SI unit prefixes
+prefix = ['p', 'n', 'u', 'm', '', 'k', 'M', 'G']
+vList = [(x+'V', x+'V') for x in prefix]
+iList = [(x+'A', x+'A') for x in prefix]
+rList = [(x+'ohm', x+'ohm') for x in prefix]
+
+
+class Unit(FlaskForm):
+	unitV1 = SelectField('', validators=[DataRequired()], choices=vList, default='V')
+	unitV2 = SelectField('', validators=[DataRequired()], choices=vList, default='V')
+
+	unitI1 = SelectField('', validators=[DataRequired()], choices=iList, default='A')
+	unitI2 = SelectField('', validators=[DataRequired()], choices=iList, default='A')
+	
+	unitR1 = SelectField('', validators=[DataRequired()], choices=rList,default='ohm')
+	unitR2 = SelectField('', validators=[DataRequired()], choices=rList,default='ohm')
+	unitRl = SelectField('', validators=[DataRequired()], choices=rList,default='ohm')
+	
+# ////////////////////////////////////////////////////////////////////////////////////////////////////
+
 # Ohms law
-class Ohm(FlaskForm):
-    R = DecimalField('R', validators=[Optional()])
-    V = DecimalField('V', validators=[Optional()])
-    I = DecimalField('I', validators=[Optional()])
+class Ohm(Unit):
+
+	R = DecimalField('R', validators=[Optional()])
+	V = DecimalField('V', validators=[Optional()])
+	I = DecimalField('I', validators=[Optional()])
+
 
 # Resistors in series/parallel
 class R_Comb(FlaskForm):
@@ -25,8 +48,8 @@ class R_Comb(FlaskForm):
 	Rone = DecimalField('R1', validators=[DataRequired()])
 	Rtwo = DecimalField('R2', validators=[DataRequired()])
 
-# Through hole resistor value
 
+# Through hole resistor value
 clrSet =['None','Black','Brown','Red','Orange','Yellow','Green','Blue','Violet','Grey','White','Grey','Gold','Silver']
 bandList = [(x,x) for x in clrSet]
 
@@ -48,22 +71,28 @@ class SMD(FlaskForm):
 
 # Voltage divider
 class V_Div(FlaskForm):
-	Vin = DecimalField('Vin', validators=[Optional()])
+	Vin = DecimalField('Vin', validators=[Optional()])	
 	Vout = DecimalField('Vout', validators=[Optional()])
 	Rload = DecimalField('Rload', validators=[Optional()])
 	R1 = DecimalField('R1', validators=[Optional()])
 	R2 = DecimalField('R2', validators=[Optional()])
 
-
 LEDclrSet =['Ignore colour','Red','Yellow','Orange','Blue','Green','Violet','UV','White']
 LEDclrlist = [(x,x) for x in LEDclrSet]
 
+
 # LED resistor
 class LED_R(FlaskForm):
-	LEDclr = SelectField('LED Colour', validators=[DataRequired()], choices=LEDclrlist, default='Ignore colour')
-	Vsrc = DecimalField('V Source', validators=[DataRequired()])
+	LEDclr = SelectField('LED Colour', validators=[DataRequired()], choices=LEDclrlist, default='Ignore colour')	
+	Vsrc = DecimalField('V Source', validators=[DataRequired()])	
 	Ilim = DecimalField('I LED', validators=[DataRequired()])
 
+
+# LED resistor
+class RPwr(FlaskForm):
+	R = DecimalField('R', validators=[DataRequired()])
+	V = DecimalField('V', validators=[Optional()])
+	I = DecimalField('I', validators=[Optional()])
 
 
 

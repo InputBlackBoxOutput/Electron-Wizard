@@ -2,7 +2,6 @@
 REM Batch file to set up internal server 
 
 TITLE Electron Wizard 
-COLOR 0a
 
 ECHO Electron Wizard
 ECHO Developed by Rutuparn Pawar (InputBlackBoxOutput)

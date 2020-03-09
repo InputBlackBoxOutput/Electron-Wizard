@@ -6,10 +6,14 @@
 # @date_created : 21 August, 2019
 #
 
-#Funtion on Ohms Law V=IR
+# 0
+# Funtion on Ohms Law V=IR
 def ohmsLaw(R,V,I):    
     if R and V  and I:
-        return 'All parameters specified! No parameter to be calculated'
+        return 'All parameters specified! No parameter to be calculated.'
+
+    if not R and not V and not I:
+        return 'Please specify atleast 2 parameters.'
 
     if not V and not I:
         return 'Specify voltage or current'
@@ -18,38 +22,24 @@ def ohmsLaw(R,V,I):
     if not R and not V :
         return 'Specify resistance or voltage'
 
-
-    if not R and not V and not I:
-        return 'Please specify atleast 2 parameters.'
-
     if R:
         if V:
-            return f"Current = {V/R} A"
+            return f"Current = {prefixPostProcess(V/R)}A "
         if I:
-            return f"Voltage = {I*R} V"
+            return f"Voltage = {prefixPostProcess(I*R)}V "
     else:
-    	return f"Resistance = {V/I} ohm" 	
+    	return f"Resistance = {prefixPostProcess(V/I)}ohm" 	
 
-#Function to calculate equivalent resistance of 2 resistors in series or parallel
-
+# 1
+# Function to calculate equivalent resistance of 2 resistors in series or parallel
 def resCombntion(parallel,R1,R2):
     if parallel == 'P':
-        return f'Equivalent Resistance {((R1*R2)/(R1+R2))} ohm'
+        return f'Equivalent Resistance {prefixPostProcess(((R1*R2)/(R1+R2)))} ohm'
     else:
-        return f'Equivalent Resistance = {R1+R2} ohm'
-        
-#Function to calculate power dissipated across a resistor
+        return f'Equivalent Resistance = {prefixPostProcess(R1+R2)} ohm'
 
-def resPwr(R,V=None,I=None):
-    if V is None and I is None:
-        return 'Please specify voltage or current.'
-    else:
-        if V is not None:
-            return (V**2)/R
-        else:
-            return (I**2)*R
-
-#Funtion to calculate resistance of a resistor using colour code
+# 2
+# Funtion to calculate resistance of a resistor using colour code
 # Improve by adding resistor series feature
 def resClrCode(nbands,Band1,Band2,Band3,Band4,Band5):
     digit = {'Black':0,'Brown':1,'Red':2,'Orange':3,'Yellow':4,'Green':5,'Blue':6,'Violet':7,'Grey':8,'White':9}
@@ -72,7 +62,7 @@ def resClrCode(nbands,Band1,Band2,Band3,Band4,Band5):
         else:
             return 'Error occured while computing!'
 
-        return f"{R} +- {Tolerance}% ohm"
+        return f"{R} +- {Tolerance}%ohm"
     
     except KeyError:
         return 'No such resistor exits'
@@ -80,21 +70,23 @@ def resClrCode(nbands,Band1,Band2,Band3,Band4,Band5):
     except:
         return 'Error occured!'   
 
-#Funtion to calculate value of a SMD components using markings
+# 3
+# Funtion to calculate value of a SMD components using markings
 def valSMD(mark, compnt):
     val = mark // 10
     mult = mark % 10
     
     if compnt == 'R':
-        return f'{val *(10**(mult))} ohm'
+        return f'{prefixPostProcess(val *(10**(mult)))}ohm'
     elif compnt == 'C':
-        return f'{val *(10**(mult-12))} F'    
+        return f'{prefixPostProcess(val *(10**(mult-12)))}F'    
     elif compnt == 'I':
-        return f'{val *(10**(mult-6))} H'
+        return f'{prefixPostProcess(val *(10**(mult-6)))}H'
     else:
         return 'Error occcured while computing!'
     
 
+# 4
 # Funtion to perform calculations for voltage divider
 def voltageDivider(R1,R2,Vin,Vout,Rload):
     if R1 and R2:
@@ -104,7 +96,7 @@ def voltageDivider(R1,R2,Vin,Vout,Rload):
     else:
         return 'Error occcured while computing'
 
-
+# 4-1
 # Funtion to calculate output voltage for a voltage divider    
 def voltageDividerV(R1,R2,Vin=None,Vout=None,Rload=None):
     if Rload is not None and R2 is not None:
@@ -118,10 +110,10 @@ def voltageDividerV(R1,R2,Vin=None,Vout=None,Rload=None):
     else:
         V=((R1+R2)/R2)*Vout
 
-    return f'{V} V'
+    return f'{prefixPostProcess(V)}V'
     
-
-#Funtion to calculate output voltage for a voltage divider    
+# 4-2
+# Funtion to calculate output voltage for a voltage divider    
 def voltage_divider_R(Vin,Vout,R1=None,R2=None,Rload=None):
     if Vout < Vin :
         V_ratio = Vout/Vin
@@ -139,10 +131,10 @@ def voltage_divider_R(Vin,Vout,R1=None,R2=None,Rload=None):
     else:
             R = ((1-V_ratio)/V_ratio)*R2
         
-    return f'{R} ohm'
+    return f'{prefixPostProcess(R)}ohm'
     
-
-#Function to calculate resistance of resitor used as current limiter for Light Emitting Diode (LED)
+# 5
+# Function to calculate resistance of resitor used as current limiter for Light Emitting Diode (LED)
 def currentLimiter(Vsrc,Iled,Clr):
     
     VdropClr={'Red':1.83,'Yellow':2.14, 'Orange':2.06 ,'Blue':3.09, 'Green':2.95, 'Violet':3.38, 'UV':3.75 , 'White':3.4}
@@ -159,84 +151,86 @@ def currentLimiter(Vsrc,Iled,Clr):
     if value < 0:
         return 'Please check the values.'
     else:
-        return f'Current limiting resistor value = {value} ohm'
+        return f'Current limiting resistor value = {prefixPostProcess(value)}ohm'
 
+# 6      
+# Function to calculate power dissipated across a resistor
+def resPwr(R,V=None,I=None):
+    if R and V  and I:
+        return 'All parameters specified! No parameter to be calculated.'
+
+    if V is None and I is None:
+        return 'Please specify voltage or current.'
+    else:
+        if V is not None:
+            return f'Power dissipated = {prefixPostProcess((V**2)/R)}W'
+        else:
+            return f'Power dissipated = {prefixPostProcess((I**2)*R)}W'
+
+# FxnList = [ohmsLaw, resCombntion, resClrCode, valSMD, voltageDivider, currentLimiter, resPwr]
 
 # -----------------------------------------------------------------------------------------------------
-# Helper Functions (Not implemented yet!)
+# Helper Functions 
 
 # Function to remove SI Unit from input
+def prefixPreProcess(value, prefix):
+    prefixes={'p':-12, 'n':-9, 'u':-6, 'm':-3, 'o':0, 'V':0, 'A':0, 'k':3, 'M':6, 'G':9}
+    return value*(10**prefixes[prefix[0]])
 
-# def SI_Unit_Input_Processing(value,unit_char='U'):
-    
-#     SI_Unit_prefixes={'p':-12,'n':-9,'u':-6,'m':-3,'U':0,'k':3,'M':6,'G':9}
-#     actual_value = value* (10**SI_Unit_prefixes[unit_char])
-    
-#     return actual_value
 
-# #Funtion to add SI units to output
-# def SI_Unit_Output_Processing(value):
-    
-#     SI_Unit_prefixes={-12:'p',-9:'n',-6:'u',-3:'m',0:'U',3:'k',6:'M',9:'G'}
-    
-#     power=int(0)
-               
-#     if(value > 999):
-#         while(value>999):
-#             value = value/10
-#             power = power+1
-    
-#     if(0 < value < 1):
-#         while(0<value<1):
-#             value = value*10
-#             power = power-1
-          
-    
-#     print(power)
-#     print(value)
-    
-#     if power not in SI_Unit_prefixes.keys():
-#         if(power > 0): 
-#             for i in [0,3,6,9]:
-#                 print("i="+str(i))
-#                 if(power < i):
-#                     upper_diff = (i+3) - power
-#                     lower_diff = power - i
-#                     if(upper_diff > lower_diff):
-#                         power = power - lower_diff
-#                         value = value * (10**lower_diff)
-#                         break
-#                     else:
-#                         power = power + upper_diff
-#                         value = value / (10**upper_diff)
-#                         break
-#         else:
-#             for i in [0,-3,-6,-9]:
-#                 print("i="+str(i))
-#                 if(power > i):
-#                     upper_diff = abs((i+3) - power)
-#                     lower_diff = abs(power - i)
-#                     if(upper_diff > lower_diff):
-#                         power = power + lower_diff
-#                         value = value / (10**lower_diff)
-#                         break
-#                     else:
-#                         power = power - upper_diff
-#                         value = value * (10**upper_diff)
-#                         break
+# Function to add SI units to output
+def prefixPostProcess(value):
+    prefixes = {-12: 'p', -9: 'n', -6: 'u', -3: 'm', 0: '', 3: 'k', 6: 'M', 9: 'G'}
+    power = int(0)
 
-         
-            
-#     print(power)
-#     print(value)
-#     if(power in SI_Unit_prefixes.keys()):
-#         unit_char = SI_Unit_prefixes[power]
-#     return (value, unit_char)      
+    # For large values
+    if value > 999:
+        while value > 999:
+            value = value / 10
+            power = power + 1
 
-# SI_Unit_Output_Processing(0.0111)
+    # For small values
+    if 0 < value < 1:
+        while 0 < value < 1:
+            value = value * 10
+            power = power - 1
+
+    if power not in prefixes.keys():
+        if power > 0:
+           while power not in [0, 3, 6, 9]:
+                value*=10
+                power-=1
+        else:
+            while power not in [0, -3, -6, -9]:
+                value/=10
+                power+=1;
+
+    # print(power)
+    # print(value)
+
+    prefix = 'Error occcured during prefix generation'
+    if power in prefixes.keys():
+        prefix = prefixes[power]
+
+    return f'{value} {prefix}'
+
+# Use below code for testing
+# prefixPostProcess(10)
+# prefixPostProcess(3000)
+# prefixPostProcess(500500)
+# prefixPostProcess(20000000)
+
+
+# prefixPostProcess(0.1)
+# prefixPostProcess(0.001)
+# prefixPostProcess(0.00006)
+# prefixPostProcess(0.00000008)
+
+
+
 
 # -------------------------------------------------------------------------------------------------
-#Function to find nearest value of resistor avaiable  
+#Function to find nearest value of resistor avaiable  (Not implemented yet!)
 
 # def nearest_resistor(R,E_series):
     
