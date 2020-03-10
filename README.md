@@ -3,4 +3,4 @@ A calculator to help in designing of electronics projects.
 
 ## In Development (Completion by end of March 2020 )
 
-## Ongoing work: SI Unit Conversion 
+## Ongoing work: Adding more calculators + Making interface more appealing
