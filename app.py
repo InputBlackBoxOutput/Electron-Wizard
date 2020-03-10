@@ -9,8 +9,6 @@ try:
     from flask import Flask, render_template, url_for, flash, request, redirect
     import forms
     import compute
-
-    from compute import prefixPreProcess as unit
 except ImportError:
     print('Error occured while importing modules required by app.py')
 
@@ -53,11 +51,10 @@ def fun():
 @app.route("/Ohms_Law", methods=['GET', 'POST'])
 def Ohms_Law():
     form = forms.Ohm()
-    
+
     if form.validate_on_submit():
-        #result = compute.ohmsLaw(unit(form.R.data,form.unitR1.data), unit(form.V.data,form.unitV1.data), unit(form.I.data,form.unitI1.data))
-        result = compute.ohmsLaw(form.R.data, form.V.data,form.I.data)
-        return render_template('Ohms_Law.html', form=form, result=result)
+        result = compute.ohmsLaw(prefix(form.R.data, form.unitR1.data), prefix(form.V.data, form.unitV1.data), prefix(form.I.data, form.unitI1.data))
+        return render_template('Ohms_Law.html', form=form, result=result) 
     else:
         return render_template('Ohms_Law.html', form=form)
 
@@ -67,7 +64,7 @@ def Resistor_Series_Parallel():
     form = forms.R_Comb()
     
     if form.validate_on_submit():
-        result = compute.resCombntion(form.sp.data, form.Rone.data, form.Rtwo.data)
+        result = compute.resCombntion(form.sp.data, prefix(form.Rone.data, form.unitR1.data), prefix(form.Rtwo.data, form.unitR2.data))
         # result = form.sp.data + str(form.Rone.data) + str(form.Rtwo.data)
         return render_template('Resistor_Series_Parallel.html', form=form, result=result)
     else:
@@ -111,7 +108,7 @@ def LED_Resistor():
     form = forms.LED_R()
 
     if form.validate_on_submit():
-        result = compute.currentLimiter(form.Vsrc.data, form.Ilim.data, form.LEDclr.data)
+        result = compute.currentLimiter(prefix(form.Vsrc.data, form.unitV1.data), prefix(form.Ilim.data, form.unitI.data), form.LEDclr.data)
         # result = form.LEDclr.data + str(form.Vsrc.data) + str(form.Ilim.data)
         return render_template('LED_Resistor.html', form=form, result=result)
     else:
@@ -122,11 +119,18 @@ def Power_Dissipated():
     form = forms.RPwr()
     
     if form.validate_on_submit():
-        result = compute.resPwr(form.R.data, form.V.data, form.I.data)
+        result = compute.resPwr(prefix(form.R.data, form.unitR1.data), prefix(form.V.data, form.unitV1.data), prefix(form.I.data, form.unitI1.data))
         return render_template('Power_Dissipated.html', form=form, result=result)
     else:
         return render_template('Power_Dissipated.html', form=form)
-        
+
+#------------------------------------------------------------------------------------------
+# Helper function
+def  prefix(value, unit):
+        if value is not None:
+            return compute.prefixPreProcess(value, unit)
+        else:
+            return None
 #------------------------------------------------------------------------------------------
 if __name__ == '__main__':
 	app.run(debug =True)

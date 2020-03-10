@@ -135,7 +135,7 @@ def voltage_divider_R(Vin,Vout,R1=None,R2=None,Rload=None):
     
 # 5
 # Function to calculate resistance of resitor used as current limiter for Light Emitting Diode (LED)
-def currentLimiter(Vsrc,Iled,Clr):
+def currentLimiter(Vsrc, Iled, Clr):
     
     VdropClr={'Red':1.83,'Yellow':2.14, 'Orange':2.06 ,'Blue':3.09, 'Green':2.95, 'Violet':3.38, 'UV':3.75 , 'White':3.4}
     #Note above values are average of max and min Vdrop for each colour
@@ -175,7 +175,7 @@ def resPwr(R,V=None,I=None):
 # Function to remove SI Unit from input
 def prefixPreProcess(value, prefix):
     prefixes={'p':-12, 'n':-9, 'u':-6, 'm':-3, 'o':0, 'V':0, 'A':0, 'k':3, 'M':6, 'G':9}
-    return value*(10**prefixes[prefix[0]])
+    return float(value) * float((10**prefixes[prefix[0]]))
 
 
 # Function to add SI units to output

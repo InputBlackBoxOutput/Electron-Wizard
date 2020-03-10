@@ -28,9 +28,9 @@ class Unit(FlaskForm):
 	unitI1 = SelectField('', validators=[DataRequired()], choices=iList, default='A')
 	unitI2 = SelectField('', validators=[DataRequired()], choices=iList, default='A')
 	
-	unitR1 = SelectField('', validators=[DataRequired()], choices=rList,default='ohm')
-	unitR2 = SelectField('', validators=[DataRequired()], choices=rList,default='ohm')
-	unitRl = SelectField('', validators=[DataRequired()], choices=rList,default='ohm')
+	unitR1 = SelectField('', validators=[DataRequired()], choices=rList, default='ohm')
+	unitR2 = SelectField('', validators=[DataRequired()], choices=rList, default='ohm')
+	unitRl = SelectField('', validators=[DataRequired()], choices=rList, default='ohm')
 	
 # ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -43,7 +43,7 @@ class Ohm(Unit):
 
 
 # Resistors in series/parallel
-class R_Comb(FlaskForm):
+class R_Comb(Unit):
 	sp = RadioField('In', choices=[('S','Series'),('P','Parallel')], default='S')
 	Rone = DecimalField('R1', validators=[DataRequired()])
 	Rtwo = DecimalField('R2', validators=[DataRequired()])
@@ -53,7 +53,7 @@ class R_Comb(FlaskForm):
 clrSet =['None','Black','Brown','Red','Orange','Yellow','Green','Blue','Violet','Grey','White','Grey','Gold','Silver']
 bandList = [(x,x) for x in clrSet]
 
-class R(FlaskForm):
+class R(Unit):
 	
 	nbands = RadioField('Number of bands on resistor', choices=[('3','3'),('4','4'),('5','5')], default ='3')
 	colour1 = SelectField('Band 1', validators=[DataRequired()], choices=bandList )
@@ -65,12 +65,12 @@ class R(FlaskForm):
 # SMD Resistor value
 # SMD Capacitor value
 # SMD Inductor value
-class SMD(FlaskForm):
+class SMD(Unit):
 	compnt = RadioField('Select component', choices=[('R','Resistor'),('C','Capacitor'),('I','Inductor')], default='R')
 	code = IntegerField('Code', validators=[DataRequired()])
 
 # Voltage divider
-class V_Div(FlaskForm):
+class V_Div(Unit):
 	Vin = DecimalField('Vin', validators=[Optional()])	
 	Vout = DecimalField('Vout', validators=[Optional()])
 	Rload = DecimalField('Rload', validators=[Optional()])
@@ -82,14 +82,14 @@ LEDclrlist = [(x,x) for x in LEDclrSet]
 
 
 # LED resistor
-class LED_R(FlaskForm):
+class LED_R(Unit):
 	LEDclr = SelectField('LED Colour', validators=[DataRequired()], choices=LEDclrlist, default='Ignore colour')	
 	Vsrc = DecimalField('V Source', validators=[DataRequired()])	
 	Ilim = DecimalField('I LED', validators=[DataRequired()])
 
 
 # LED resistor
-class RPwr(FlaskForm):
+class RPwr(Unit):
 	R = DecimalField('R', validators=[DataRequired()])
 	V = DecimalField('V', validators=[Optional()])
 	I = DecimalField('I', validators=[Optional()])
