@@ -9,6 +9,12 @@
 	{% endif %}
 	
 	<link rel="stylesheet" type="text/css" href="static/all.css">
+	<style>
+		#leftdiv  { float: left  }
+		#rightdiv { float: left }
+
+		#spacer  { float: left }
+	</style>
 </head>
 
 <body>
@@ -17,23 +23,32 @@
 		{%endblock header%}
 	</header>
 	<main>
-		<div>
+
+		<div id="leftdiv">
+			{%block info%}
+			{%endblock info%}
+		</div>
+
+		<div id="spacer">
+			<img src="static/spacer.jpg">
+		</div>
+
+		<div id="rightdiv">
 			<form method="POST" action="">
 				{{form.hidden_tag()}}
 				
-				{%block fields%}
-				{%endblock fields%}
+					{%block fields%}
+					{%endblock fields%}
 
 				<br><br>
 				<input type=submit>
-			</form>
-		</div>
-		<div>
+			</form>			
+			<br>	
+			
 			{% if result%}
 				<h1>{{ result }}<h1>
 			{% endif %}
 
-			<br>
 			<a href={{ url_for('home') }}>Home</a>
 		</div>
 	</main>

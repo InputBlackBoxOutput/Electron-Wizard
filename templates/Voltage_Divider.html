@@ -1,10 +1,11 @@
 {% extends "cal_base.html"%}
 
 {%block header %}
-	<h1>Ohms Law</h1>
+	<h1>Resistor Voltage Divider</h1>
 {%endblock header %}
 
 {%block fields%}
+
 	{{ form.Vin.label }} 
 	{{ form.Vin }}
 	{{form.unitV1.label}}
@@ -17,12 +18,6 @@
 	{{form.unitV2}}
 
 	<br><br>
-	{{ form.Rload.label }} 
-	{{ form.Rload }}
-	{{form.unitRl.label}}
-	{{form.unitRl}}
-
-	<br><br>
 	{{ form.R1.label }} 
 	{{ form.R1 }}
 	{{form.unitR1.label}}
@@ -32,5 +27,17 @@
 	{{ form.R2.label }}
 	{{ form.R2 }}
 	{{form.unitR2.label}}
-	{{form.unitR2}}	
+	{{form.unitR2}}
+
+	<br><br>
+	{{ form.Rload.label }} 
+	{{ form.Rload }}
+	{{form.unitRl.label}}
+	{{form.unitRl}}	
+
 {%endblock fields%}
+
+
+{%block info%}
+	<img src="static/vlgdiv.jpg">
+{%endblock info%}

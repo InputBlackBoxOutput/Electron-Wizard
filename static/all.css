@@ -14,7 +14,7 @@ a:hover {
 }
 
 a img {
-  border:           10;
+  border:           20;
 }
 
 h1, h2 {
@@ -38,18 +38,12 @@ blockquote {
 table {
   margin-left:      20px;
   margin-right:     20px;
-  border:           thin solid black;
-  caption-side:     bottom;
-  border-collapse:  collapse;
+  border:           none;
 }
 
-td, th {
+td {
   border:           thin dotted gray;
   padding:          5px;
-}
-
-th {
-  background-color: #cc6600;
 }
 
 caption {
