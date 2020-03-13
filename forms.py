@@ -71,9 +71,9 @@ class SMD(Unit):
 
 # Voltage divider
 class V_Div(Unit):
-	Vin = DecimalField('Vin', validators=[Optional()])	
-	Vout = DecimalField('Vout', validators=[Optional()])
-	Rload = DecimalField('Rload', validators=[Optional()])
+	Vin = DecimalField('Vi', validators=[Optional()])	
+	Vout = DecimalField('Vo', validators=[Optional()])
+	Rload = DecimalField('Rl', validators=[Optional()])
 	R1 = DecimalField('R1', validators=[Optional()])
 	R2 = DecimalField('R2', validators=[Optional()])
 

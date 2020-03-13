@@ -88,22 +88,26 @@ def valSMD(mark, compnt):
 
 # 4
 # Funtion to perform calculations for voltage divider
-def voltageDivider(R1,R2,Vin,Vout,Rload):
-    if R1 and R2:
-        voltageDividerV(R1,R2,Vin,Vout,Rload)
-    elif Vin and Vout:
-        voltage_divider_R(Vin,Vout,R1,R2,Rload)
-    else:
-        return 'Error occcured while computing'
+def voltageDivider(R1,R2,Vin,Vout,Rload=None):
+
+	if not R1 and not R2 and not Vin and not Vout and not Rload:
+		return "Please specify parameters"
+
+	if R1 and R2:
+		return voltageDividerV(R1,R2,Vin,Vout,Rload)
+	elif Vin and Vout:
+		return voltageDividerR(Vin,Vout,R1,R2,Rload)
+	else:
+		return 'Less or wrong parameters entered, please check!'
 
 # 4-1
 # Funtion to calculate output voltage for a voltage divider    
-def voltageDividerV(R1,R2,Vin=None,Vout=None,Rload=None):
-    if Rload is not None and R2 is not None:
-        R2 = (R2*Rload)/(R2+Rload)
-    
+def voltageDividerV(R1, R2, Vin, Vout, Rload):
     if Vin is None and Vout is None:
         return 'Specify input or output voltage'
+
+    if Rload is not None and R2 is not None:
+        R2 = (R2*Rload)/(R2+Rload)
     
     if Vout is None:
         V=(R2/(R1+R2))*Vin
@@ -114,14 +118,14 @@ def voltageDividerV(R1,R2,Vin=None,Vout=None,Rload=None):
     
 # 4-2
 # Funtion to calculate output voltage for a voltage divider    
-def voltage_divider_R(Vin,Vout,R1=None,R2=None,Rload=None):
+def voltageDividerR(Vin, Vout, R1,R2, Rload):
+    if R1 is None and R2 is None:
+    	return 'Specify value of resistor R1 or R2'
+    
     if Vout < Vin :
         V_ratio = Vout/Vin
     else:
         return 'Output voltage cannot be greater than input voltage'
-    
-    if R1 is None and R2 is None:
-        return 'Specify value of any one resistor'
     
     if Rload is not None and R2 is not None:
         R2 = (R2*Rload)/(R2+Rload)

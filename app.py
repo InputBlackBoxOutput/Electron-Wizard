@@ -97,9 +97,11 @@ def Voltage_Divider():
     form = forms.V_Div()
 
     if form.validate_on_submit():
-        # result = compute.voltageDivider(form.R1.data, form.R2.data, form.Vin.data, form.Vout.data, form.Rload.data)
-        result = str(form.Vin.data) + str(form.Vout.data) + str(form.Rload.data) + str(form.R1.data) + str(form.R2.data)
-        return render_template('Voltage_Divider.html', form=form, result=result)
+    	_R1 = prefix(form.R1.data, form.unitR1.data)
+    	_R2 = prefix(form.R2.data, form.unitR2.data)
+    	_Rl = prefix(form.Rload.data, form.unitRl.data)
+    	result = compute.voltageDivider(_R1, _R2 , prefix(form.Vin.data, form.unitV1.data), prefix(form.Vout.data, form.unitV2.data), _Rl)
+    	return render_template('Voltage_Divider.html', form=form, result=result)
     else:
         return render_template('Voltage_Divider.html', form=form)
 
