@@ -3,7 +3,7 @@ A webapp to help in designing of electronic projects
 
 ## In Development (Completion by end of March 2020 )
 
-## Ongoing work: Adding more calculators + Making interface more appealing
+## Ongoing work: Adding more calculators 
 
 ## Features
 - Simple interface 
@@ -17,3 +17,8 @@ A webapp to help in designing of electronic projects
 * Voltage divider
 * LED current limiting resistor
 * Power dissipated by resistor
+
+# Screenshot
+![Screenshot 1](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot1.jpg)
+<br>
+![Screenshot 2](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot2.jpg)
