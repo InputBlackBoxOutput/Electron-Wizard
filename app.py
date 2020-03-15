@@ -7,10 +7,10 @@
 
 try:
     from flask import Flask, render_template, url_for, flash, request, redirect
-    import forms
-    import compute
+    import forms, compute, threading, webbrowser
 except ImportError:
     print('Error occured while importing modules required by app.py')
+
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -135,5 +135,7 @@ def  prefix(value, unit):
             return None
 #------------------------------------------------------------------------------------------
 if __name__ == '__main__':
-	app.run(debug =True)
- 
+    url = "http://127.0.0.1:5000"
+    threading.Timer(1.25, lambda: webbrowser.open(url) ).start()
+    app.run(debug=False)
+

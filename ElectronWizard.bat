@@ -1,5 +1,5 @@
 @ECHO OFF
-REM Batch file to set up internal server 
+REM Batch file to set up internal server and show home page on default browser
 
 TITLE Electron Wizard 
 
@@ -13,11 +13,11 @@ ECHO 2) Copy and paste one of the following URLs
 ECHO https://localhost:5000/ or https://127.0.0.1:5000/
 ECHO.
 
-SET FLASK_APP=app.py
-SET FLASK_DEBUG=1
-flask run 
+REM SET FLASK_APP=app.py 
+REM SET FLASK_DEBUG=1
+REM flask run
 
-REM start chrome https://localhost:5000/
+python app.py 
 
 PAUSE
 EXIT
