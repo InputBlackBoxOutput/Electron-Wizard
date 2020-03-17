@@ -87,8 +87,8 @@ def SMD_Code():
     form = forms.SMD()
 
     if form.validate_on_submit():
-        result = compute.valSMD(form.code.data, form.compnt.data)
-        return render_template('SMD_Code.html', form=form, result=result)
+    	result = compute.valSMD(form.code.data, form.compnt.data, form.underlined.data)
+    	return render_template('SMD_Code.html', form=form, result=result)
     else:
         return render_template('SMD_Code.html', form=form)
 

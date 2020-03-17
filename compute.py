@@ -72,16 +72,34 @@ def resClrCode(nbands,Band1,Band2,Band3,Band4,Band5):
 
 # 3
 # Funtion to calculate value of a SMD components using markings
-def valSMD(mark, compnt):
-    val = mark // 10
-    mult = mark % 10
-    
+def valSMD(mark, compnt, undline):    
     if compnt == 'R':
-        return f'{prefixPostProcess(val *(10**(mult)))}ohm'
+    	for each in mark:
+	    	if each == 'R':
+	    		code = mark.split('R')
+	    		try:
+	    			value = code[0]+'.'+code[1]
+	    		except:
+	    			value = '0.'+code[1]
+	    		return f'{value} ohms'
+	    	else:
+	    		if undline is True:
+	    			return f'0.{mark} ohm'
+
+	    		val =  int(mark) // 10
+	    		mult = int(mark) % 10
+	    	return f'{prefixPostProcess(val *(10**(mult)))}ohm'
+
     elif compnt == 'C':
-        return f'{prefixPostProcess(val *(10**(mult-12)))}F'    
+    	val  = int(mark) // 10
+    	mult = int(mark) % 10
+    	return f'{prefixPostProcess(val *(10**(mult-12)))}F'    
+    
     elif compnt == 'I':
-        return f'{prefixPostProcess(val *(10**(mult-6)))}H'
+    	val  = int(mark) // 10
+    	mult = int(mark) % 10
+    	return f'{prefixPostProcess(val *(10**(mult-6)))}H'
+    
     else:
         return 'Error occcured while computing!'
     

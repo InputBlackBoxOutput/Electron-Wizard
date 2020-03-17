@@ -8,7 +8,7 @@
 
 try:
 	from flask_wtf import FlaskForm
-	from wtforms import IntegerField, DecimalField, RadioField, SelectField 
+	from wtforms import IntegerField, DecimalField, RadioField, SelectField, BooleanField, StringField
 	from wtforms.validators import DataRequired, Optional
 except ImportError:
 	print('Error occured while importing modules required by forms.py')
@@ -66,8 +66,9 @@ class R(Unit):
 # SMD Capacitor value
 # SMD Inductor value
 class SMD(Unit):
-	compnt = RadioField('Select component', choices=[('R','Resistor'),('C','Capacitor'),('I','Inductor')], default='R')
-	code = IntegerField('Code', validators=[DataRequired()])
+	compnt = RadioField('Select component:', choices=[('R','Resistor'),('C','Capacitor'),('I','Inductor')], default='R')
+	code = StringField('Code', validators=[DataRequired()])
+	underlined = BooleanField('Underlined ?')
 
 # Voltage divider
 class V_Div(Unit):
