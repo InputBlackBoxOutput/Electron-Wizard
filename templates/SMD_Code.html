@@ -6,7 +6,6 @@
 
 {%block fields%}		
 			{{ form.compnt.label }}
-			<br>
 			{% for subfield in form.compnt %}
     			<tr>
         			<td>{{ subfield }}</td>
@@ -17,6 +16,12 @@
 			<br><br>
 			{{ form.code.label}}
 			{{ form.code}}
+
+			<br><br>
+			{{form.underlined.label}}
+			{{form.underlined}}
+
+
 {%endblock fields%}
 
 {%block info%}
