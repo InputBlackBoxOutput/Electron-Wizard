@@ -70,6 +70,15 @@ def resClrCode(nbands,Band1,Band2,Band3,Band4,Band5):
     except:
         return 'Error occured!'   
 
+# 3-0
+# Function to check if marking contains tolerance value
+def containsTolerance(marking):
+    for char in marking:
+        if char.isalpha():
+            return True
+    return False
+
+
 # 3
 # Funtion to calculate value of a SMD components using markings
 def valSMD(mark, compnt, undline):    
@@ -91,17 +100,41 @@ def valSMD(mark, compnt, undline):
 	    	return f'{prefixPostProcess(val *(10**(mult)))}ohm'
 
     elif compnt == 'C':
-    	val  = int(mark) // 10
-    	mult = int(mark) % 10
-    	return f'{prefixPostProcess(val *(10**(mult-12)))}F'    
+        C_tolerance = {'Z':'+80% & -20%', 'M':'±20%', 'K':'±10%', 'J':'±5%', 'G':'±2%', 'F':'±1%', 'D':'±0.5%', 'C':'±0.25%', 'B':'±0.1%'}
+
+        if containsTolerance(mark):
+            try:
+                tol = C_tolerance[mark[-1]]
+            except:
+                return 'Invalid code'
+
+            val  = int(mark[:-1]) // 10
+            mult = int(mark[:-1]) % 10
+            return f'{prefixPostProcess(val *(10**(mult-12)))}F & Tolerance= {tol}'
+        else:           
+            val  = int(mark) // 10
+            mult = int(mark) % 10
+            return f'{prefixPostProcess(val *(10**(mult-12)))}F'    
     
     elif compnt == 'I':
-    	val  = int(mark) // 10
-    	mult = int(mark) % 10
-    	return f'{prefixPostProcess(val *(10**(mult-6)))}H'
-    
+        I_tolerance = {'A':'0.05nH'	, 'B':'0.1nH', 'C':'0.25nH', 'D':'0.5nH', 'E':'0.5%', 'F':'1%', 'G':'2%', 'H':'3%', 'J':'5%', 'K':'10%', 'L':'15%', 'M':'20%', 'V':'25%', 'N':'30%', 'Z':'+80\% & -20\%'}
+
+        if containsTolerance(mark):
+            try:
+                tol = I_tolerance[mark[-1]]
+            except:
+                return 'Invalid code'
+
+            val  = int(mark[:-1]) // 10
+            mult = int(mark[:-1]) % 10
+            return f'{prefixPostProcess(val *(10**(mult-6)))}H & Tolerance= {tol}'
+        
+        else:
+            val  = int(mark) // 10
+            mult = int(mark) % 10
+            return f'{prefixPostProcess(val *(10**(mult-6)))}H'
     else:
-        return 'Error occcured while computing!'
+        return 'Something went wrong!'
     
 
 # 4
