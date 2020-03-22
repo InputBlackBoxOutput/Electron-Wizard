@@ -1,0 +1,27 @@
+{% extends "cal_base.html"%}
+
+{%block header %}
+	<h1>Inductor Value via Colour Code</h1>
+{%endblock header %}
+
+{%block fields%}
+			{{ form.colour1.label}}
+			{{ form.colour1}}
+
+			<br><br>
+			{{ form.colour2.label}}
+			{{ form.colour2}}
+
+			<br><br>
+			{{ form.colour3.label}}
+			{{ form.colour3}}
+
+			<br><br>
+			{{ form.colour4.label}}
+			{{ form.colour4}}
+{%endblock fields%}
+
+
+{%block info%}
+	<img src="static/resclrcode.jpg">
+{%endblock info%}
