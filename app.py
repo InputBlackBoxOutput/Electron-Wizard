@@ -126,16 +126,29 @@ def Power_Dissipated():
     else:
         return render_template('Power_Dissipated.html', form=form)
 
-#------------------------------------------------------------------------------------------
+@app.route("/Inductor_Colour_Code", methods=['GET', 'POST'])
+def Inductor_Colour_Code():
+    form = forms.I()
+    
+    if form.validate_on_submit():
+        #result = type(form.colour4.data)
+        result = compute.indClrCode(form.colour1.data, form.colour2.data, form.colour3.data, form.colour4.data)
+        return render_template('Inductor_Colour_Code.html', form=form, result=result)
+    else:
+        return render_template('Inductor_Colour_Code.html', form=form)
+
+#------------------------------------------------------------------------------------------------------------
 # Helper function
 def  prefix(value, unit):
         if value is not None:
             return compute.prefixPreProcess(value, unit)
         else:
             return None
-#------------------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------------------------------------
 if __name__ == '__main__':
     url = "http://127.0.0.1:5000"
     threading.Timer(1.25, lambda: webbrowser.open(url) ).start()
     app.run(debug=False)
 
+#------------------------------------------------------------------------------------------------------------

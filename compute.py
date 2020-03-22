@@ -68,7 +68,7 @@ def resClrCode(nbands,Band1,Band2,Band3,Band4,Band5):
         return 'No such resistor exits'
     
     except:
-        return 'Error occured!'   
+        return 'Something went wrong!'   
 
 # 3-0
 # Function to check if marking contains tolerance value
@@ -222,7 +222,27 @@ def resPwr(R,V=None,I=None):
         else:
             return f'Power dissipated = {prefixPostProcess((I**2)*R)}W'
 
-# FxnList = [ohmsLaw, resCombntion, resClrCode, valSMD, voltageDivider, currentLimiter, resPwr]
+# 7
+# Function to calculate induuctance of a inductor using colour code
+def indClrCode(Band1, Band2, Band3, Band4):
+    digit = {'Black':0,'Brown':1,'Red':2,'Orange':3,'Yellow':4,'Green':5,'Blue':6,'Violet':7,'Grey':8,'White':9}
+    multiplier = {'None':0,'Black':0,'Brown':1,'Red':2,'Orange':3,'Yellow':4, 'Gold':0.1, 'Silver':0.01}
+    tolerance = {'Black':20,'Gold':5,'Silver':10}
+    
+    try:
+        L = (digit[Band1] * 10 + digit[Band2] * 10**(multiplier[Band3]-6))
+        
+        if Band4 != 'None':
+            return f'{prefixPostProcess(L)}H & Tolerance= +-{tolerance[Band4]}%'
+        else:
+            return f'{prefixPostProcess(L)}H'
+    
+    except KeyError:
+        return 'No such inductor exits'
+
+    except:
+        return 'Something went wrong!'
+
 
 # -----------------------------------------------------------------------------------------------------
 # Helper Functions 

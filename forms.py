@@ -50,7 +50,7 @@ class R_Comb(Unit):
 
 
 # Through hole resistor value
-clrSet =['None','Black','Brown','Red','Orange','Yellow','Green','Blue','Violet','Grey','White','Grey','Gold','Silver']
+clrSet =['None','Black','Brown','Red','Orange','Yellow','Green','Blue','Violet','Grey','White','Gold','Silver']
 bandList = [(x,x) for x in clrSet]
 
 class R(Unit):
@@ -94,6 +94,15 @@ class RPwr(Unit):
 	R = DecimalField('R', validators=[DataRequired()])
 	V = DecimalField('V', validators=[Optional()])
 	I = DecimalField('I', validators=[Optional()])
+
+
+# Inductor colour code
+class I(Unit):
+	colour1 = SelectField('Band 1', validators=[DataRequired()], choices=bandList)
+	colour2 = SelectField('Band 2', validators=[DataRequired()], choices=bandList)
+	colour3 = SelectField('Band 3', validators=[DataRequired()], choices=bandList)
+	colour4 = SelectField('Band 4', validators=[Optional()], choices=bandList)
+
 
 
 
