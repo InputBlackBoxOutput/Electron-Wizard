@@ -131,11 +131,20 @@ def Inductor_Colour_Code():
     form = forms.I()
     
     if form.validate_on_submit():
-        #result = type(form.colour4.data)
-        result = compute.indClrCode(form.colour1.data, form.colour2.data, form.colour3.data, form.colour4.data)
-        return render_template('Inductor_Colour_Code.html', form=form, result=result)
+    	result = compute.indClrCode(form.colour1.data, form.colour2.data, form.colour3.data, form.colour4.data)
+    	return render_template('Inductor_Colour_Code.html', form=form, result=result)
     else:
-        return render_template('Inductor_Colour_Code.html', form=form)
+    	return render_template('Inductor_Colour_Code.html', form=form)
+
+@app.route("/Reactance", methods=['GET', 'POST'])
+def Reactance():
+    form = forms.React()
+    
+    if form.validate_on_submit():
+        result = compute.reactance(form.val.data, form.freq.data, form.compnt.data)
+        return render_template('Reactance.html', form=form, result=result)
+    else:
+        return render_template('Reactance.html', form=form)
 
 #------------------------------------------------------------------------------------------------------------
 # Helper function

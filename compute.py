@@ -6,6 +6,8 @@
 # @date_created : 21 August, 2019
 #
 
+import math
+
 # 0
 # Funtion on Ohms Law V=IR
 def ohmsLaw(R,V,I):    
@@ -62,7 +64,7 @@ def resClrCode(nbands,Band1,Band2,Band3,Band4,Band5):
         else:
             return 'Error occured while computing!'
 
-        return f"{R} +- {Tolerance}%ohm"
+        return f"{R} +- {Tolerance}% ohm"
     
     except KeyError:
         return 'No such resistor exits'
@@ -90,7 +92,7 @@ def valSMD(mark, compnt, undline):
 	    			value = code[0]+'.'+code[1]
 	    		except:
 	    			value = '0.'+code[1]
-	    		return f'{value} ohms'
+	    		return f'{value} ohm'
 	    	else:
 	    		if undline is True:
 	    			return f'0.{mark} ohm'
@@ -226,11 +228,11 @@ def resPwr(R,V=None,I=None):
 # Function to calculate induuctance of a inductor using colour code
 def indClrCode(Band1, Band2, Band3, Band4):
     digit = {'Black':0,'Brown':1,'Red':2,'Orange':3,'Yellow':4,'Green':5,'Blue':6,'Violet':7,'Grey':8,'White':9}
-    multiplier = {'None':0,'Black':0,'Brown':1,'Red':2,'Orange':3,'Yellow':4, 'Gold':0.1, 'Silver':0.01}
-    tolerance = {'Black':20,'Gold':5,'Silver':10}
+    multiplier = {'Black':0,'Brown':1,'Red':2,'Orange':3,'Yellow':4, 'Gold':0.1, 'Silver':0.01}
+    tolerance = {'None':'-','Black':20,'Brown':1,'Red':2,'Orange':3,'Yellow':4, 'Gold':5, 'Silver':10}
     
     try:
-        L = (digit[Band1] * 10 + digit[Band2] * 10**(multiplier[Band3]-6))
+        L = (digit[Band1] * 10 + digit[Band2]) * (10**(multiplier[Band3]-6))
         
         if Band4 != 'None':
             return f'{prefixPostProcess(L)}H & Tolerance= +-{tolerance[Band4]}%'
@@ -243,7 +245,16 @@ def indClrCode(Band1, Band2, Band3, Band4):
     except:
         return 'Something went wrong!'
 
-
+# 8
+# Function to calculate capacitive/inductive reactance
+def reactance(val, freq, compnt):
+	if compnt=='I':
+		Xl = 6.283 * float(freq) * float(val) * 10**-3
+		return f'Xl= {float(prefixPostProcess(Xl)):.2f}ohm'     # Inductor value in mH
+	else:
+		Xc = 1/(6.283 * float(freq) * float(val) * 10**-6)
+		return f'Xc= {float(prefixPostProcess(Xc)):.2f}ohm' # Capacitor Value in uF
+		
 # -----------------------------------------------------------------------------------------------------
 # Helper Functions 
 

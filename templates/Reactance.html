@@ -1,0 +1,28 @@
+{% extends "cal_base.html"%}
+
+{%block header %}
+	<h1>Capacitive/Inductive Reactance</h1>
+{%endblock header %}
+
+{%block fields%}
+			{{ form.compnt.label }}
+			{% for subfield in form.compnt %}
+    			<tr>
+        			<td>{{ subfield }}</td>
+        			<td>{{ subfield.label }}</td>
+    			</tr>
+			{% endfor %} 
+
+			<br><br>
+			{{form.val.label}}
+			{{form.val}} <small>uF/mH</small>
+			
+			<br><br>
+			{{form.freq.label}}
+			{{form.freq}}
+
+{%endblock fields%}
+
+{%block info%}
+	
+{%endblock info%}

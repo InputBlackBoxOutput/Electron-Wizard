@@ -95,13 +95,25 @@ class RPwr(Unit):
 	V = DecimalField('V', validators=[Optional()])
 	I = DecimalField('I', validators=[Optional()])
 
+clrSetL0 =['None','Black','Brown','Red','Orange','Yellow','Green','Blue','Violet','Grey','White']
+bandListL0 = [(x,x) for x in clrSetL0]
+
+clrSetL1 =['None','Black','Brown','Red','Orange','Yellow','Gold','Silver']
+bandListL1 = [(x,x) for x in clrSetL1]
 
 # Inductor colour code
 class I(Unit):
-	colour1 = SelectField('Band 1', validators=[DataRequired()], choices=bandList)
-	colour2 = SelectField('Band 2', validators=[DataRequired()], choices=bandList)
-	colour3 = SelectField('Band 3', validators=[DataRequired()], choices=bandList)
-	colour4 = SelectField('Band 4', validators=[Optional()], choices=bandList)
+	colour1 = SelectField('Band 1', validators=[DataRequired()], choices=bandListL0)
+	colour2 = SelectField('Band 2', validators=[DataRequired()], choices=bandListL0)
+	colour3 = SelectField('Band 3', validators=[DataRequired()], choices=bandListL1)
+	colour4 = SelectField('Band 4', validators=[Optional()], choices=bandListL1)
+
+# Reactance
+# Improvise by adding resonance condition
+class React(Unit):
+	compnt = RadioField('Component:', validators=[DataRequired()], choices=[('C','Capacitor'), ('I','Inductor')], default='C')
+	val = DecimalField('Value', validators=[DataRequired()])
+	freq = DecimalField('Frequency', validators=[DataRequired()])
 
 
 
