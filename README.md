@@ -12,13 +12,15 @@ A webapp to help in designing of electronic projects
 ## This application contains calculator for the following
 * Ohms law
 * Resistors in series/parallel
-* Through hole resistor value using colour code
+* Resistor value via colour code
 * SMD resistor/capacitor/inductor value
 * Voltage divider
 * LED current limiting resistor
 * Power dissipated by resistor
+* Inductor value via colour code
+* Capacitive/Inductive reactance
 
-# Screenshot
-![Screenshot 1](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot1.jpg)
-<br>
-![Screenshot 2](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot2.jpg)
+# Screenshots
+<kbd>![Screenshot 1](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot1.jpg)</kbd>
+<br><br>
+<kbd>![Screenshot 2](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot2.jpg)</kbd>
