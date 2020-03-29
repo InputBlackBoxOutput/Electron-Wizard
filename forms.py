@@ -84,9 +84,9 @@ LEDclrlist = [(x,x) for x in LEDclrSet]
 
 # LED resistor
 class LED_R(Unit):
-	LEDclr = SelectField('LED Colour', validators=[DataRequired()], choices=LEDclrlist, default='Ignore colour')	
-	Vsrc = DecimalField('V Source', validators=[DataRequired()])	
-	Ilim = DecimalField('I LED', validators=[DataRequired()])
+	LEDclr = SelectField('LED Colour:', validators=[DataRequired()], choices=LEDclrlist, default='Ignore colour')	
+	Vsrc = DecimalField('Vsrc', validators=[DataRequired()])	
+	Ilim = DecimalField('Ilim', validators=[DataRequired()])
 
 
 # LED resistor
@@ -113,7 +113,7 @@ class I(Unit):
 class React(Unit):
 	compnt = RadioField('Component:', validators=[DataRequired()], choices=[('C','Capacitor'), ('I','Inductor')], default='C')
 	val = DecimalField('Value', validators=[DataRequired()])
-	freq = DecimalField('Frequency', validators=[DataRequired()])
+	freq = DecimalField('Freq', validators=[DataRequired()])
 
 
 

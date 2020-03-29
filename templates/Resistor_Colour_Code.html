@@ -5,8 +5,7 @@
 {%endblock header %}
 
 {%block fields%}
-			{{ form.nbands.label }}
-			<br>
+			{{ form.nbands.label }}:
 			{% for subfield in form.nbands %}
     			<tr>
         			<td>{{ subfield }}</td>

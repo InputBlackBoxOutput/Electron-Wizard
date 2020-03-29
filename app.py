@@ -110,7 +110,7 @@ def LED_Resistor():
     form = forms.LED_R()
 
     if form.validate_on_submit():
-        result = compute.currentLimiter(prefix(form.Vsrc.data, form.unitV1.data), prefix(form.Ilim.data, form.unitI.data), form.LEDclr.data)
+        result = compute.currentLimiter(prefix(form.Vsrc.data, form.unitV1.data), prefix(form.Ilim.data, form.unitI1.data), form.LEDclr.data)
         # result = form.LEDclr.data + str(form.Vsrc.data) + str(form.Ilim.data)
         return render_template('LED_Resistor.html', form=form, result=result)
     else:
@@ -121,7 +121,7 @@ def Power_Dissipated():
     form = forms.RPwr()
     
     if form.validate_on_submit():
-        result = compute.resPwr(prefix(form.R.data, form.unitR1.data), prefix(form.V.data, form.unitV1.data), prefix(form.I.data, form.unitI1.data))
+        result = compute.resPwr(prefix(form.R.data, form.unitRl.data), prefix(form.V.data, form.unitV1.data), prefix(form.I.data, form.unitI1.data))
         return render_template('Power_Dissipated.html', form=form, result=result)
     else:
         return render_template('Power_Dissipated.html', form=form)

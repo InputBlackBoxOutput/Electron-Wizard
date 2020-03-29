@@ -1,12 +1,14 @@
 {% extends "cal_base.html"%}
 
 {%block header %}
-	<h1>Power Disspipated by Resistor</h1>
+	<h1>Power Dissipated by Resistor</h1>
 {%endblock header %}
 
 {%block fields%}
 			{{form.R.label}}
 			{{form.R}}
+			{{form.unitRl.label}}
+			{{form.unitRl}}
 			
 			<br><br>
 			{{form.V.label}}

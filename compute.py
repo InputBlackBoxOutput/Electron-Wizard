@@ -250,7 +250,7 @@ def indClrCode(Band1, Band2, Band3, Band4):
 def reactance(val, freq, compnt):
 	if compnt=='I':
 		Xl = 6.283 * float(freq) * float(val) * 10**-3
-		return f'Xl= {float(prefixPostProcess(Xl)):.2f}ohm'     # Inductor value in mH
+		return f'Xl= {float(prefixPostProcess(Xl)):.2f}ohm' # Inductor value in mH
 	else:
 		Xc = 1/(6.283 * float(freq) * float(val) * 10**-6)
 		return f'Xc= {float(prefixPostProcess(Xc)):.2f}ohm' # Capacitor Value in uF
