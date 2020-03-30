@@ -1,10 +1,6 @@
 # Electron-Wizard
 A webapp to help in designing of electronic projects
 
-## In Development (Completion by end of March 2020 )
-
-## Ongoing work: Adding more calculators 
-
 ## Features
 - Simple interface 
 - Runs on any device with a browser and python (3.6 or above)
@@ -24,3 +20,5 @@ A webapp to help in designing of electronic projects
 <kbd>![Screenshot 1](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot1.jpg)</kbd>
 <br><br>
 <kbd>![Screenshot 2](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot2.jpg)</kbd>
+<br><br>
+<kbd>![Screenshot 3](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot3.jpg)</kbd>
