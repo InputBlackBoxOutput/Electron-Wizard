@@ -1,3 +1,5 @@
+REM Batch file to install modules required by Electron-Wizard
+
 @ECHO off
 TITLE Installing modules
 ECHO Installing modules required by Electron Wizard
