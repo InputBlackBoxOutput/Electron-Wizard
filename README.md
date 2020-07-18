@@ -30,10 +30,10 @@ A webapp to help in designing of electronic projects
 1. Run command <code>python3 app.py</code>  in terminal to open webapp
 
 # Screenshots
-<kbd>![Screenshot 1](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot1.jpg)</kbd>
+<kbd> <img src="Images/Screenshot1.jpg" height=400></kbd>
 <br><br>
-<kbd>![Screenshot 2](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot2.jpg)</kbd>
+<kbd> <img src="Images/Screenshot2.jpg" height=400></kbd>
 <br><br>
-<kbd>![Screenshot 3](https://github.com/InputBlackBoxOutput/Electron-Wizard/blob/master/Images/Screenshot3.jpg)</kbd>
+<kbd> <img src="Images/Screenshot3.jpg" height=400></kbd>
 
 ### Made with lots of ⏱️, 📚 and ☕ by InputBlackBoxOutput
