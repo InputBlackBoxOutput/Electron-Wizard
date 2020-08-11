@@ -1,6 +1,8 @@
 # Electron-Wizard
 A webapp to help in designing of electronic projects
 
+#### Deployed using Heroku @ https://electron-wizard.herokuapp.com/
+
 ## Features
 - Simple interface 
 - Runs on any device with a browser and python (3.6 or above)
